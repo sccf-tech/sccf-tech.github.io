@@ -16,7 +16,7 @@ Want to contribute to this page? Create an issue [here](https://github.com/sccf-
 
 ## Reporting
 
-### Daily Reports
+### Conditions
 
 - Caloosahatchee Conditions Reports | [Link](http://www.sccf.org/water-quality/caloosahatchee-condition-reports){target="_blank"} |
 
