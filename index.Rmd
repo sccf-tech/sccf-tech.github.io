@@ -18,8 +18,11 @@ Want to contribute to this page? Create an issue [here](https://github.com/sccf-
 
 ### Conditions
 
-- Caloosahatchee Conditions Reports | [Link](http://www.sccf.org/water-quality/caloosahatchee-condition-reports){target="_blank"} |
+- SCCF Page - Caloosahatchee Conditions Reports | [Link](http://www.sccf.org/water-quality/caloosahatchee-condition-reports){target="_blank"} |
 
+- Weekly Caloosahatchee Stakeholder Report | [Report](https://sccf-tech.github.io/CRE_Conditions/report/stakeholder_data.html){target="_blank"} | [Source](https://github.com/sccf-tech/CRE_Conditions){target="_blank"} |
+
+- Caloosahatchee/Okeechobee Conditions Report | [Report](https://sccf-tech.github.io/CRE_Conditions/report/CRE_REPORT.html){target="_blank"} | [Source](https://github.com/sccf-tech/CRE_Conditions){target="_blank"} |
 
 ### Trends
 
@@ -39,9 +42,9 @@ Want to contribute to this page? Create an issue [here](https://github.com/sccf-
  
  - [sccf-tech.github.io](https://github.com/sccf-tech/sccf-tech.github.io){target="_blank"}: files for this Github website
  
- - LOSOM Estuary Nutrient Loading Model Repository | [link](https://github.com/SwampThingPaul/LOSOM_ENLM){target="_blank"} |
+ - LOSOM Estuary Nutrient Loading Model Repository | [Link](https://github.com/SwampThingPaul/LOSOM_ENLM){target="_blank"} |
  
- 
+ - Lake Okeechobee RECOVER PM R-Package| [Link](https://github.com/SwampThingPaul/LORECOVER){target="_blank"} | [Webpage](https://swampthingecology.org/LORECOVER/){target="_blank"} |  
 
 ## Presentations/Tech Report
 
@@ -50,10 +53,16 @@ Want to contribute to this page? Create an issue [here](https://github.com/sccf-
   * USACE project webpage [https://www.saj.usace.army.mil/LOSOM/](https://www.saj.usace.army.mil/LOSOM/){target="_blank"}
 
   * Related work:
-      * DRAFT - Estuary Nutrient Loading Model (Caloosahatchee Estuary) | [link](https://owper-tech.github.io/slides/LOSOM/ENLM/Julian_LOSOM_ENLM#1){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ENLM){target="_blank"} | [Addendum Presentation](https://owper-tech.github.io/slides/LOSOM/ENLM/Julian_LOSOM_CRE_ENLM_ad1#1){target="_blank"} | 
+      * DRAFT - Estuary Nutrient Loading Model (Caloosahatchee Estuary) | [Link](https://owper-tech.github.io/slides/LOSOM/ENLM/Julian_LOSOM_ENLM#1){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ENLM){target="_blank"} | [Addendum Presentation](https://owper-tech.github.io/slides/LOSOM/ENLM/Julian_LOSOM_CRE_ENLM_ad1#1){target="_blank"} | 
     
-      * DRAFT - Estuary Nutrient Loading Model (St Lucie Estuary) | [link](https://owper-tech.github.io/slides/LOSOM/ENLM/Julian_LOSOM_SLE_ENLM#1){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ENLM){target="_blank"} |
+      * DRAFT - Estuary Nutrient Loading Model (St Lucie Estuary) | [Link](https://owper-tech.github.io/slides/LOSOM/ENLM/Julian_LOSOM_SLE_ENLM#1){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ENLM){target="_blank"} |
 
+  * Iteration 1 modeling: 
+      * DRAFT - Estuary Nutrient Loading Model results | [Link](https://sccf-tech.github.io/slides/LOSOM/iter1/SCCF_iter1_LOSOM_ENLMrslt.html){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"} | [Dataset]("./LOSOM/iter1/RSMBN_iter1_ENLM.zip"){target="_blank"} |
+      * DRAFT - Model Evaluation | Link | Source |
+  
+<!-- [Link](https://sccf-tech.github.io/slides/LOSOM/iter1/SCCF_iter1_LOSOM) -->
+  
    
 ## Resources
 
