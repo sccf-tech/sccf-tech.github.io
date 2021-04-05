@@ -57,11 +57,11 @@ class: left, middle
 
 .pull-right[
 ```{r ,fig.align="center",out.width="40%"}
-knitr::include_graphics('SCCF Logo knockout_c.png')
+knitr::include_graphics('./Plots/SCCF Logo knockout_c.png')
 ```
 
 ```{r ,fig.align="center",out.width="40%"}
-knitr::include_graphics('ConSWFL.jpeg')
+knitr::include_graphics('./Plots/ConSWFL.jpeg')
 ```
 
 ]
@@ -172,16 +172,38 @@ name: criticalload
 
 ### Critical Loads
 
-* The concept of critical loads was proposed as a way to evaluate the modeled loads across alternatives. 
-  * However, when attempting to verify this relationship for purposes of this evaluation the relationship (based on available data) were not congruent with prior efforts (Janicki 2003) or were not consistent with temporal resolution of the models (Doering et al. 2006).
+* The concept of critical loads was proposed as a way to evaluate the modeled loads across alternatives.
+  * Janicki (2003)
+
+```{r ,fig.align="center",out.width="70%"}
+knitr::include_graphics('./Plots/Janicki2003_Fig4_1.png')
+```
+
+.small[
+* Janicki Environmental (2003) Development of Critical Loads for the C-43 Basin, Caloosahatchee River. Prepared for: Florida Department of Environmental Protection, Tallahassee, FL.
+
+]
+
+---
+name: criticalload2
+
+### Critical Loads
+
+* However, when attempting to verify this relationship for purposes of this evaluation the relationship (based on available data) were not congruent with prior efforts (Janicki 2003) or were not consistent with temporal resolution of the models (Doering et al. 2006).
   
-```{r ,fig.align="center",out.width="50%"}
+```{r ,fig.align="center",out.width="70%"}
 knitr::include_graphics('./Plots/Iteration_1/C43_CriticalLoad.png')
 ```
 
 .center[S-79 TP and TN annual loads compared to spatially averaged annual geometric mean Chlorophyll-a concentration for each segment.]
 
 * The effects of season, color (CDOM), biology, and hydrodynamics affect the chlorophyll-load relationship across the estuary.
+
+---
+name: CRE
+class: middle, center
+
+## Caloosahatchee River Estuary
 
 ---
 name: ldc-TP
@@ -253,7 +275,7 @@ Percent difference of average load relative to the FWO (LSM25B) alternative over
 
 * ESLE, WRDC, and REC provide load impact (positive % difference).
 
-* Remaining alternative minor changes <br>( $\pm$) to loading.
+* Remaining alternatives result in minor changes (`r paste("\u00B1")`) to loading.
 
 ]
 
@@ -263,7 +285,7 @@ name: FWM
 
 ### S-79 FWM Concentration
 
-```{r ,fig.align="center",out.width="75%"}
+```{r ,fig.align="center",out.width="70%"}
 
 knitr::include_graphics('./Plots/Iteration_1/S79_FWM_bxp.png')
 ```
@@ -278,6 +300,97 @@ name: fwmsum
 ```{r ,fig.align="center",out.width="100%"}
 
 knitr::include_graphics('./Plots/Iteration_1/S79_FWM_PerDiff.png')
+```
+]
+
+.pull-right[
+Percent difference of average flow-weighted mean relative to the FWO (LSM25B) alternative over the entire simulation period for total phosphorus (left) and total nitrogen (right) loads.
+
+]
+
+---
+name: SLE
+class: middle, center
+
+## St Lucie River Estuary
+
+---
+name: ldc-TP SLE
+
+### Total Phosphorus Load Duration Curve
+
+
+```{r ,fig.align="center",out.width="70%"}
+
+knitr::include_graphics('./Plots/Iteration_1/S80_TPLoadDuration.png')
+```
+
+.center[Cumulative distribution/load duration curve comparison of S-80 TP loads for each alternative relative to FWO and ECB.]
+
+---
+name: ldc-TN SLE
+
+### Total Nitrogen Load Duration Curve
+
+```{r ,fig.align="center",out.width="70%"}
+
+knitr::include_graphics('./Plots/Iteration_1/S80_TNLoadDuration.png')
+```
+
+.center[Cumulative distribution/load duration curve comparison of S-80 TN loads for each alternative relative to FWO and ECB.]
+
+---
+name: bxp TN sle
+
+### Total Nitrogen Load 
+
+```{r ,fig.align="center",out.width="75%"}
+
+knitr::include_graphics('./Plots/Iteration_1/S80_TNLoad_bxp.png')
+```
+.center[Boxplot representing annual TN loads during the simulation period across alternatives. Black-dashed line represents the FWO median and green dashed line and point in boxplot indicates period of simulation mean.]
+
+---
+name: loadsum
+
+### S-80 Load Summary
+
+.pull-left[
+```{r ,fig.align="center",out.width="100%"}
+
+knitr::include_graphics('./Plots/Iteration_1/S80_Load_PerDiff.png')
+```
+]
+
+.pull-right[
+Percent difference of average load relative to the FWO (LSM25B) alternative over the entire simulation period for total phosphorus (left) and total nitrogen (right) loads.
+
+
+]
+
+
+---
+name: FWM
+
+### S-80 FWM Concentration
+
+```{r ,fig.align="center",out.width="60%"}
+
+knitr::include_graphics('./Plots/Iteration_1/S80_FWM_bxp.png')
+```
+.center[Boxplot representing annual TP (top) and TN (bottom) flow-weighted mean concentration during the simulation period across alternatives. Black-dashed line represents the FWO median and green dashed line and point in boxplot indicates period of simulation mean.]
+
+.small[FWMC during years with <80 ac-ft WY<sup>-1</sup> were excluded. See original presentation - [link](https://owper-tech.github.io/slides/LOSOM/ENLM/Julian_LOSOM_SLE_ENLM#43).]
+
+---
+name: fwmsum
+
+### S-80 FWM Summary
+
+.pull-left[
+```{r ,fig.align="center",out.width="100%"}
+
+knitr::include_graphics('./Plots/Iteration_1/S80_FWM_PerDiff.png')
 ```
 ]
 

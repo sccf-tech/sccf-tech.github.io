@@ -12,7 +12,8 @@
 
 /* https://www.w3schools.com/css/css3_gradients.asp */
 div.my-footer {
-  background-image: linear-gradient(to right, #005D8E , #fdc210);
+  /*background-image: linear-gradient(to right, #005D8E,#7BA9BE ,#FFFFFF,#FFFFFF,	#0c7000, #ffc20f);*/
+  background-image: linear-gradient(to right, #005D8E,#ffc20f);
     position: absolute;
   bottom: 0px;
   left: 0px;
