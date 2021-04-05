@@ -1,0 +1,199 @@
+---
+title: "PSRP - Southwest Protection Feature"
+output: 
+  html_document: 
+    toc: yes
+    includes:
+      after_body: footer.html
+editor_options: 
+  chunk_output_type: console
+---
+
+***
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#Libraries
+library(kableExtra)
+library(AnalystHelper);#devtools::install_github("SwampThingPaul/AnalystHelper")
+library(plyr)
+library(reshape)
+library(zoo)
+library(smatr)
+
+library(tmap)
+library(rgdal)
+
+
+#Paths
+wd="D:/Work/PSRP/PSRP_SWP"
+
+data.path=paste0(wd,"/Data/")
+GIS.path=paste0(wd,"/GIS")
+USACE.gis=paste0(GIS.path,"/fromUSACE")
+gen.gis="D:/_GISData/"
+
+##Helper functions
+utm17=CRS("+proj=utm +zone=17 +datum=WGS84 +units=m")
+
+# GIS Data ----------------------------------------------------------------
+cerp=spTransform(readOGR(paste0(gen.gis,"CERP"),"bdwmdcrp"),utm17)
+cerp.PSRP=subset(cerp,PROJECT=="PICAYUNE STRAND RESTORATION")
+
+OFW=spTransform(readOGR(GIS.path,"OFW"),utm17)
+OFW$DIS=1
+OFW.PSRP=subset(OFW,OBJECTID%in%c(517,519,829,828,490,1017,636))
+NWR.10K=spTransform(readOGR(GIS.path,"10K_NWR"),utm17)
+SW.OFW=gBuffer(bind(NWR.10K,subset(OFW,OBJECTID%in%c(517,519,829,828,490,1017,636))),byid=T,width=1)
+OFW.dissolve=gUnaryUnion(SW.OFW)
+NNC=spTransform(readOGR(GIS.path,"Estuary_NNC"),utm17)
+proposed_levee=spTransform(readOGR(GIS.path,"Proposed_6L_Levee"),utm17)
+NNC.10K=subset(NNC,ESTUARY=="Tidal Cocohatchee River/Ten Thousand Islands")
+
+prop.levee=spTransform(readOGR(USACE.gis,"ProposedLevee"),utm17)
+convey=spTransform(readOGR(USACE.gis,"Alt2cConveyance_FDEP_pt"),utm17)
+
+#Hydroperoid
+altpc2.HP=raster(paste0(data.path,"revised_GSSHA/HydroperiodMaps/AltPC2_WWeir_HP.asc"))
+projection(altpc2.HP)=utm17
+SWPF=raster(paste0(data.path,"revised_GSSHA/HydroperiodMaps/SWPF_Only_HP.asc"))
+projection(SWPF)=utm17
+SWPF_new=raster(paste0(data.path,"revised_GSSHA/HydroperiodMaps/SWPF_Only_NwOp_HP.asc"))
+projection(SWPF_new)=utm17
+
+altpc2.HP.diff=raster(paste0(data.path,"revised_GSSHA/HydroperiodMaps/Diff_AltPC2_WWeir.asc"))
+projection(altpc2.HP.diff)=utm17
+SWPF.diff=raster(paste0(data.path,"revised_GSSHA/HydroperiodMaps/Diff_SWPF_Only.asc"))
+projection(SWPF.diff)=utm17
+SWPF_new.diff=raster(paste0(data.path,"revised_GSSHA/HydroperiodMaps/Diff_SWPF_Only_NwOp.asc"))
+projection(SWPF_new.diff)=utm17
+
+# slope=terrain(altpc2.HP.diff,"slope")
+# aspect=terrain(altpc2.HP.diff,"aspect")
+# altpc2.HP.diff.hill=hillShade(slope,aspect)
+
+#tm_shape(altpc2.HP.diff.hill)+tm_raster(alpha=0.75,palette = gray(1:100/100),n=100,legend.show=F)+
+#  tm_shape(altpc2.HP.diff)+tm_raster(alpha=0.5,palette=terrain.colors(25),style="fixed",breaks=sort(c(0,seq(-12,12,3))),legend.show=F)
+
+#waterdepth
+altpc2.waterdepth=raster(paste0(data.path,"revised_GSSHA/AvgDepthMaps/AltPC2_WWeir_AvgDepth2.asc"))
+projection(altpc2.waterdepth)=utm17
+altpc2.waterdepth=altpc2.waterdepth*100
+SWPF.waterdepth=raster(paste0(data.path,"revised_GSSHA/AvgDepthMaps/SWPFOnly_AvgDepth2.asc"))
+projection(SWPF.waterdepth)=utm17
+SWPF.waterdepth=SWPF.waterdepth*100
+SWPF_new.waterdepth=raster(paste0(data.path,"revised_GSSHA/AvgDepthMaps/SWPFOnlyNewOpening_AvgDepth2.asc"))
+projection(SWPF_new.waterdepth)=utm17
+SWPF_new.waterdepth=SWPF_new.waterdepth*100
+
+altpc2.waterdepth.diff=raster(paste0(data.path,"revised_GSSHA/AvgDepthMaps/Diff_APC2WestWeir.asc"))
+projection(altpc2.waterdepth.diff)=utm17
+altpc2.waterdepth.diff=altpc2.waterdepth.diff*100
+SWPF.waterdepth.diff=raster(paste0(data.path,"revised_GSSHA/AvgDepthMaps/Diff_SWPFOnly.asc"))
+projection(SWPF.waterdepth.diff)=utm17
+SWPF.waterdepth.diff=SWPF.waterdepth.diff*100
+SWPF_new.waterdepth.diff=raster(paste0(data.path,"revised_GSSHA/AvgDepthMaps/Diff_SWPFOnlyNewOp.asc"))
+projection(SWPF_new.waterdepth.diff)=utm17
+SWPF_new.waterdepth.diff=SWPF_new.waterdepth.diff*100
+
+##
+tmap_mode("view")
+
+```
+
+The purpose of this page is to provide an interactive viewer of spatial data related to the Southwestern Protection Feature effort specific to the Picayune Strand Restoration Project (PSRP). Below are two interactive maps, the first displays average hydroperiods across the simulation period (in months) and the second map is average ponding depths across the simulation period and alternatives. Also included in the average ponding depth maps are each alternative relative to Future Without (FWO). This data was simulated using the Gridded Surface Subsurface Hydrologic Analysis (GSSHA) model and provided to the Project Delivery Team by USACE via the Inter-agency Modelling Center. This pages does not provide an analysis or interpretation of the data, just an interactive interface.  
+
+Currently the **"AltPC2"** scenario is the default layer for the hydroperiod or Depth Map. To toggle the different layers click what looks like the icon below on the map and toggle the layers on and off. When a layer is toggled the legend should change accordingly. 
+
+```{r, out.width="10%",fig.align='center',echo=FALSE,fig.cap="Layer Icon on maps"}
+knitr::include_graphics("layer_icon.png")
+```
+
+
+**Note:** The color ramp for the hydroperiod maps range from tan/khaki for *"0 to 1"* months to lightblue for *"11 to 12"* months; difference in hydroperiod of alternatives relative to FWO color ramp range from red (*"-12 to -9"* months), white (*0* months), to green (*"9 - 12"* months) at an increment of 3 months; ponding depth color ramp range from goldenrod to light blue (*"0 to 200"* cm) at an increment of 1 cm and; difference in ponding depth of alternative relative to FWO color ramp range from red (*"60 to <0"* cm), white (*0* meters), to blue (*">0 - 60"* cm) at an increment of 1 cm
+
+Additional layers in the maps include the proposed Levee alignment (as provided by USACE), proposed conveyances (as provided by USACE), PSRP Comprehensive Evergaldes Restoration Project updated boundary, and selected Outstanding Florida Waters boundary (within the general project area). 
+
+## Model Alternatives
+
+```{r,echo=F}
+
+alts=data.frame(ModelName=c("Future Without (FWO)","Design Refinement (AltPC2)","Southwest Protection Feature (SWF)","Southwest Protection Feature plus conveyances (SWPF+)"),Descript=c("Baseline with no restoration project features in place. All canals (i.e. Merritt, Faka, Miller and Prairie) are open and no protection features.","Includes all canals plugged (Merritt, Faka Miller and Prairie), restoration pumps (S488, S487 and S486) operational, Southwest Protection Feature Levee and conveyances (New opening in US41, and new culvert in SWPF Levee).","Baseline with only the Southwest Protection Feature Levee, seepage collection canal, and culvert in the proposed levee. Additional conveyance is not included (i.e. New Opening in US41). All canals are open and pump stations are not operational.","Baseline with only the Southwest Protection Feature Levee, seepage collection canal, culvert in the proposed levee and the New opening in US41.  All canals are open (Miller, Faka, Merritt and Prairie) and pump stations (S488, S487 and S486) are not operational."))
+
+
+knitr::kable(alts,row.names = F,
+             col.names=c("Model Run Name","Description"),
+             align=c("l","l"),caption="Gridded Surface Subsurface Hydrologic Analysis (GSSHA) model scenarios evaluated for this design refinement.")%>%
+  kable_styling(bootstrap_options = "striped",font_size=12, full_width = F)%>%
+  column_spec(2,width_min = "5cm",width_max="10cm")
+
+```
+
+## GSSHA Average Hydroperiod
+
+```{r Map, echo=FALSE,warning=FALSE, message=FALSE,out.width="100%"}
+col.rmp=c(colorRampPalette(c("khaki","olivedrab3","forestgreen","lightblue","steelblue1"))(12))
+col.rmp2=c(colorRampPalette(c("red","white","green"))(9))
+
+HP_map=tm_basemap(leaflet::providers$Esri.WorldImagery,alpha=0.9)+
+  tm_shape(altpc2.HP,name="AltPC2 Hydroperiod")+tm_raster(palette = col.rmp,alpha=0.75,breaks=0:12,title="Average Hydroperiod (Months)")+
+    tm_shape(SWPF,name="SWPF Hydroperiod")+tm_raster(palette = col.rmp,alpha=0.75,breaks=0:12,title="Average Hydroperiod (Months)")+
+   tm_shape(SWPF_new,name="SWPF+ Hydroperiod")+tm_raster(palette = col.rmp,alpha=0.75,breaks=0:12,title="Average Hydroperiod (Months)")+
+  tm_shape(altpc2.HP.diff,name="AltPC2 - FWO (Hydroperiod)")+tm_raster(palette = col.rmp2,alpha=0.75,style="fixed",breaks=sort(c(0,seq(-12,12,3))),title="Average Hydroperiod Difference (Months)")+
+  tm_shape(SWPF.diff,name="SWPF - FWO (Hydroperiod)")+tm_raster(palette = col.rmp2,alpha=0.75,style="fixed",breaks=sort(c(0,seq(-12,12,3))),title="Average Hydroperiod Difference (Months)")+
+    tm_shape(SWPF_new.diff,name="SWPF+ - FWO (Hydroperiod)")+tm_raster(palette = col.rmp2,alpha=0.75,style="fixed",breaks=sort(c(0,seq(-12,12,3))),title="Average Hydroperiod Difference (Months)")+
+  tm_shape(cerp.PSRP,name="Picayune Strand Restoration Project")+tm_borders("white",lwd=3)+
+  tm_shape(OFW.PSRP,name="Outstanding Florida Waters")+tm_polygons("white",alpha=0.25)+
+  tm_shape(prop.levee,name="Proposed Levee")+tm_lines("yellow",lwd=2)+
+  tm_shape(convey,name="AltPC2 Conveyance")+tm_dots("red")+
+  tm_scale_bar()
+
+HP_map%>%
+  tmap_leaflet()%>%
+  leaflet::hideGroup(c("SWPF Hydroperiod","SWPF+ Hydroperiod","AltPC2 - FWO (Hydroperiod)","SWPF - FWO (Hydroperiod)","SWPF+ - FWO (Hydroperiod)"))
+
+```
+
+<center> Average Hydroperiod (month) for each modeled alternative during the period of record. Difference in hydroperiod of alternatives relative to FWO is also provided (see layers icon) </center>
+
+<br>
+<br>
+
+***
+
+
+## GSSHA Average Ponding Depth
+
+```{r Map2, echo=FALSE,warning=FALSE, message=FALSE,out.width="100%"}
+depth.bks=seq(0,200,1)
+depth.bks2=sort(c(0,seq(-60,60,1)))
+col.rmp=c("lightgoldenrod2","steelblue1","dodgerblue1")#colorRampPalette(c("lightgoldenrod2","dodgerblue1","steelblue1"))(length(depth.bks)-1)
+#col.rmp2=c("red","grey","green")#colorRampPalette(c("red","white","green"))(11)
+col.rmp2=c('#67001f','#b2182b','#d6604d','#f4a582','#fddbc7','#d1e5f0','#92c5de','#4393c3','#2166ac','#053061')
+
+Depth_map=tm_basemap(leaflet::providers$Esri.WorldImagery,alpha=0.9)+
+  tm_shape(altpc2.waterdepth,name="AltPC2 Depth")+tm_raster(palette = col.rmp,alpha=0.8,breaks=depth.bks,title="Average Ponding Depth (cm)",style = "cont")+
+    tm_shape(SWPF.waterdepth,name="SWPF Depth")+tm_raster(palette = col.rmp,alpha=0.8,breaks=depth.bks,title="Average Ponding Depth (cm)",style = "cont")+
+   tm_shape(SWPF_new.waterdepth,name="SWPF+ Depth")+tm_raster(palette = col.rmp,alpha=0.8,breaks=depth.bks,title="Average Ponding Depth (cm)",style = "cont")+
+  
+  tm_shape(altpc2.waterdepth.diff,name="AltPC2 - FWO (Ponding Depth Difference)")+tm_raster(palette = col.rmp2,alpha=0.95,breaks=depth.bks2,title="Average Ponding Depth Difference (cm)",style = "cont",mid=0)+
+  tm_shape(SWPF.waterdepth.diff,name="SWPF - FWO (Ponding Depth Difference)")+tm_raster(palette = col.rmp2,alpha=0.95,breaks=depth.bks2,title="Average Ponding Depth Difference (cm)",style = "cont",mid=0)+
+  tm_shape(SWPF_new.waterdepth.diff,name="SWPF+ - FWO (Ponding Depth Difference)")+tm_raster(palette = col.rmp2,alpha=0.95,breaks=depth.bks2,title="Average Ponding Depth Difference (cm)",style = "cont",mid=0)+
+  tm_shape(cerp.PSRP,name="Picayune Strand Restoration Project")+tm_borders("white",lwd=3)+
+  tm_shape(OFW.PSRP,name="Outstanding Florida Waters")+tm_polygons("white",alpha=0.25)+
+  tm_shape(prop.levee,name="Proposed Levee")+tm_lines("yellow",lwd=2)+
+  tm_shape(convey,name="AltPC2 Conveyance")+tm_dots("red")+
+  tm_scale_bar()
+
+Depth_map%>%
+  tmap_leaflet()%>%
+  leaflet::hideGroup(c("SWPF Depth","SWPF+ Depth","AltPC2 - FWO (Ponding Depth Difference)","SWPF - FWO (Ponding Depth Difference)","SWPF+ - FWO (Ponding Depth Difference)"))
+
+```
+
+<center> Average ponding water depth (meters) for each modeled alternative during the period of record. Difference in ponding depth of alternatives relative to FWO is also provided (see layers icon).</center>
+
+
+<br>
+
+
