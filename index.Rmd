@@ -100,6 +100,10 @@ dat2%>%
 <br>
 </li>
 <li> DRAFT - Iteration 1 Modeling Evaluation | Link | Source |</li>
+<ul>
+<li> Iternation 1 Modeling Evaluation Interative tool | [Link](https://sccf-tech.github.io/DataReports/LOSOM/Iteration1_stagecurve.html){target="_blank"} |
+</li>
+</ul>
 </ul>
 </ul>
 
@@ -107,7 +111,7 @@ dat2%>%
 <ul>
 <li> GSSHA Model</li>
 <ul> 
-<li>Modeling to support Southwestern Protection Feature - [link](https://sccf-tech.github.io/pages/PSRP_GSSHA/PSRP_GSSHA){target="_blank"}
+<li>Modeling to support Southwestern Protection Feature - [link](https://sccf-tech.github.io/DataReports/PSRP/PSRP_GSSHA.html){target="_blank"}
 </li>
 </ul>
 </ul>
