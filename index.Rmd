@@ -119,7 +119,7 @@ dat2%>%
 <br>
 <br>
 </li>
-<li> DRAFT - Iteration 1 Modeling Evaluation | Link | Source |</li>
+<li> DRAFT - Iteration 1 Modeling Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/iter1/SCCF_iter1_LOSOM){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"} |</li>
 <ul>
 <li> Iternation 1 Modeling Evaluation Interative tool | [Link](https://sccf-tech.github.io/DataReports/LOSOM/Iteration1_stagecurve.html){target="_blank"} |
 </li>
