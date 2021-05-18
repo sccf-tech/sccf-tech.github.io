@@ -138,7 +138,18 @@ dat2%>%
   
 <!-- [Link](https://sccf-tech.github.io/slides/LOSOM/iter1/SCCF_iter1_LOSOM) -->
   
-   
+
+**FDEP Triennial Review**
+<ul>
+<li> 2021 Proposed DO SSAC Technical Review | [Report](https://github.com/SwampThingPaul/SFL_DOSSAC/raw/master/2021_DOSSAC_TechReport/2021_DOSSAC_TechReport.pdf) | [Source](https://github.com/SwampThingPaul/SFL_DOSSAC){target="_blank"} |
+</li>
+<ul>
+<li> FDEP **DRAFT DO SSAC Development Document** | [Report](https://github.com/SwampThingPaul/SFL_DOSSAC/raw/master/FDEP%20Report/Type%20II%20DO%20SSAC%20Technical%20Support%20Document%20Revised%20Draft%20February%202021.pdf) | [FDEP Webpage](https://floridadep.gov/dear/water-quality-standards/content/triennial-review-water-quality-standards){target="_blank"} |
+</li>
+</ul>
+
+</ul>
+
 ## Resources
 
 * [TBEP technical github](https://tbep-tech.github.io/){target="_blank"}
