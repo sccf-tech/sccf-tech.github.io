@@ -121,11 +121,16 @@ dat2%>%
 </li>
 <li> DRAFT - Iteration 1 Modeling Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/iter1/SCCF_iter1_LOSOM){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"} |</li>
 <ul>
-<li> Iternation 1 Modeling Evaluation Interative tool | [Link](https://sccf-tech.github.io/DataReports/LOSOM/Iteration1_stagecurve.html){target="_blank"} |
+<li> Iternation 1 Modeling Evaluation Interactive tool | [Link](https://sccf-tech.github.io/DataReports/LOSOM/Iteration1_stagecurve.html){target="_blank"} |
+</li>
+</ul>
+
+<li> Pareto Re-evalution | [Link](https://sccf-tech.github.io/slides/LOSOM/iter1/pareto_reeval.html){target="_blank"} | </li>
+<li> Iteration 2 Framework Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/iter1/sccf_iter2_pareto){target="_blank"} |
 </li>
 </ul>
 </ul>
-</ul>
+<br>
 
 **PSRP**
 <ul>
@@ -135,10 +140,8 @@ dat2%>%
 </li>
 </ul>
 </ul>
-  
-<!-- [Link](https://sccf-tech.github.io/slides/LOSOM/iter1/SCCF_iter1_LOSOM) -->
-  
 
+<br>
 **FDEP Triennial Review**
 <ul>
 <li> 2021 Proposed DO SSAC Technical Review | [Report](https://github.com/SwampThingPaul/SFL_DOSSAC/raw/master/2021_DOSSAC_TechReport/2021_DOSSAC_TechReport.pdf) | [Source](https://github.com/SwampThingPaul/SFL_DOSSAC){target="_blank"} |
