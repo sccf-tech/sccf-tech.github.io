@@ -89,7 +89,7 @@ USACE project webpage [https://www.saj.usace.army.mil/LOSOM/](https://www.saj.us
 <ul>
 <li>Iteration 1 modeling:</li>
 <ul>
-<li>DRAFT - Estuary Nutrient Loading Model results | [Link](https://sccf-tech.github.io/slides/LOSOM/iter1/SCCF_iter1_LOSOM_ENLMrslt.html){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"} | 
+<li>DRAFT - Estuary Nutrient Loading Model results | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter1_LOSOM_ENLMrslt.html){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"} | 
  
 ```{r,echo=F,fig.align="center"}
 dat1=read.csv("C:/Julian_LaCie/_GitHub/LOSOM_ModelEval/Export/RSMBN_iter1_load_CRE.csv")
@@ -119,15 +119,22 @@ dat2%>%
 <br>
 <br>
 </li>
-<li> DRAFT - Iteration 1 Modeling Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/iter1/SCCF_iter1_LOSOM){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"} |</li>
+<li> DRAFT - Iteration 1 Modeling Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter1_LOSOM){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"} |</li>
 <ul>
 <li> Iternation 1 Modeling Evaluation Interactive tool | [Link](https://sccf-tech.github.io/DataReports/LOSOM/Iteration1_stagecurve.html){target="_blank"} |
 </li>
 </ul>
 
-<li> Pareto Re-evalution | [Link](https://sccf-tech.github.io/slides/LOSOM/iter1/pareto_reeval.html){target="_blank"} | </li>
-<li> Iteration 2 Framework Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/iter1/sccf_iter2_pareto){target="_blank"} |
+<li> Pareto Re-evalution | [Link](https://sccf-tech.github.io/slides/LOSOM/pareto_reeval.html){target="_blank"} | </li>
+<li> Iteration 2 Framework Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter2_pareto){target="_blank"} |
 </li>
+</ul>
+</ul>
+
+<ul>
+<li>Iteration 2 modeling:</li>
+<ul>
+<li> DRAFT - Iteration 2 Modeling Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"} |</li>
 </ul>
 </ul>
 <br>
