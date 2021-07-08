@@ -117,7 +117,6 @@ dat2%>%
 
 ```
 <br>
-<br>
 </li>
 <li> DRAFT - Iteration 1 Modeling Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter1_LOSOM){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"} |</li>
 <ul>
@@ -134,11 +133,39 @@ dat2%>%
 <ul>
 <li>Iteration 2 modeling:</li>
 <ul>
-<li> DRAFT - Iteration 2 Modeling Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"} |</li>
-<li> Iteration 2 - Evaluation Technical Workshop (2021-06-22) | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshop){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshop.pdf){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"} |</li>
-<li> Iteration 2 - Evaluation Technical Workshop - Climate Consideration (2021-06-30) | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshopClimate.html){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshopClimate.pdf){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"} |</li>
-<li> Iteration 2 -  Lake & Estuary Summary | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter2_summary){target="_blank"} | [Source](https://github.com/SwampThingPaul/LOSOM_ModelEval){target="_blank"}  |</li>
-<li> Iteration 2 -  Estuary Nutrient Loading Model results | Link | Source |</li>
+<li> DRAFT - Iteration 2 Modeling Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM){target="_blank"} |</li>
+<li> Iteration 2 - Evaluation Technical Workshop (2021-06-22) | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshop){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshop.pdf){target="_blank"}|</li>
+<li> Iteration 2 - Evaluation Technical Workshop - Climate Consideration (2021-06-30) | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshopClimate.html){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshopClimate.pdf){target="_blank"} |</li>
+<li> Iteration 2 -  Lake & Estuary Summary | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter2_summary){target="_blank"} |</li>
+<li> Iteration 2 -  Estuary Nutrient Loading Model results | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_ENLMrslt){target="_blank"} |
+ [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_ENLMrslt.pdf){target="_blank"} |</li>
+
+```{r,echo=F,fig.align="center"}
+dat1=read.csv("C:/Julian_LaCie/_GitHub/LOSOM_ModelEval/Export/RSMBN_iter2_load_CRE.csv")
+dat2=read.csv("C:/Julian_LaCie/_GitHub/LOSOM_ModelEval/Export/RSMBN_iter2_load_SLE.csv")
+
+library(downloadthis)
+
+dat1%>%
+  download_this(
+    output_name = "Iter2_CRE_ENLM",
+    output_extension = ".xlsx",
+    button_label = "Download CRE ENLM results",
+    button_type = "primary",
+    has_icon = TRUE,
+    icon = "fa fa-file-excel")
+
+dat2%>%
+  download_this(
+    output_name = "Iter2_SLE_ENLM",
+    output_extension = ".xlsx",
+    button_label = "Download SLE ENLM results",
+    button_type = "primary",
+    has_icon = TRUE,
+    icon = "fa fa-file-excel")
+
+```
+<br>
 </ul>
 </ul>
 <br>
