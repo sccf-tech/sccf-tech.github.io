@@ -166,6 +166,8 @@ dat2%>%
 
 ```
 <br>
+<li> Iteration 2 -  S77/S308 Nutrient Loading estimates | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_LakeBasinLoad){target="_blank"} |
+ [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_LakeBasinLoad.pdf){target="_blank"} |</li>
 </ul>
 </ul>
 <br>
