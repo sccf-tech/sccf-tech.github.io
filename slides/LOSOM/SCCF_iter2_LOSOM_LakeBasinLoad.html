@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>SCCF LOSOM iter2</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Paul Julian" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tabwid/tabwid.css" rel="stylesheet" />
+    <link rel="stylesheet" href="libs/WhiteBlue.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+&lt;span&gt; &lt;/span&gt;
+&lt;/div&gt;
+
+---
+name: title
+class: left, middle
+
+### Lake Okeechobee System Operating Manual
+
+.pull-left[
+#### Iteration 2 Modeling -&lt;br&gt;S-77/S-308 Load Estimates
+
+*Sanibel-Captiva Conservation Foundation*
+
+*Conservancy of Southwest Florida*
+
+July 08, 2021 &lt;br&gt;(Updated: July 09, 2021 )
+
+]
+&lt;!-- this ends up being the title slide since seal = FALSE--&gt;
+
+.pull-right[
+&lt;img src="./Plots/SCCF Logo knockout_c.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="./Plots/ConSWFL.jpeg" width="40%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.footnote[
+Paul Julian PhD&lt;br&gt;[<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-right:0.2em;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>](mailto: pjulian@sccf.org) .small[pjulian@sccf.org]
+]
+
+---
+name: alternatives
+
+### Iteration 2 - Model runs
+
+
+&lt;template id="d7e2e8bc-4c8b-412b-bc2e-5495afa48d3e"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-3902b0fa{border-collapse:collapse;}.cl-38fb89d8{font-family:'Times New Roman';font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-38fb89d9{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-38fb89da{font-family:'Times New Roman';font-size:6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3pt;}.cl-38fb89db{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-38fb89dc{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-38fbb0d4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:0.1pt;padding-top:0.1pt;padding-left:0.1pt;padding-right:0.1pt;line-height: 1;background-color:transparent;}.cl-38fbb0d5{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-38fbd92e{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-38fbd92f{width:360pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-38fbd930{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-38fbd931{width:360pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-38fbd932{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-38fbd933{width:360pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-38fbd934{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-38fbd935{width:360pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-3902b0fa'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-38fbd934"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d8"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-38fbd935"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d8"&gt;Description&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-38fbd92e"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;ECBr&lt;/span&gt;&lt;span class="cl-38fb89da"&gt; 1 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-38fbd92f"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;LOSOM Existing Condition Baseline 2019&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-38fbd92e"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;NA25&lt;/span&gt;&lt;span class="cl-38fb89da"&gt; 2 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-38fbd92f"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;LOSOM No Action 2025 (FWO)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-38fbd92e"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;AA&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-38fbd92f"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;ESLE Framework. Enhances SLE ecology.&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-38fbd92e"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;BB&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-38fbd92f"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;SPLC Framework. Improve water supply to pre-LORS08&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-38fbd92e"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;CC&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-38fbd92f"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;Pareto Plan D Framework. Enhances CRE ecology and improves water supply&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-38fbd92e"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;DD&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-38fbd92f"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;Pareto Plan A Framework. Incremental improvement over LORS.&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-38fbd92e"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;EE1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-38fbd92f"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;Stage Target Operation Framework. Improve water supply performance by reducing flows south.&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-38fbd930"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;EE2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-38fbd931"&gt;&lt;p class="cl-38fbb0d4"&gt;&lt;span class="cl-38fb89d9"&gt;Stage Target Operations Framework. Reduce flows to SLE by reducing Zone B release rate.&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;tfoot&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  colspan="2"class="cl-38fbd932"&gt;&lt;p class="cl-38fbb0d5"&gt;&lt;span class="cl-38fb89db"&gt; 1 &lt;/span&gt;&lt;span class="cl-38fb89dc"&gt;Existing Conditions Baseline 2019, revised (replaces LSMECB)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  colspan="2"class="cl-38fbd932"&gt;&lt;p class="cl-38fbb0d5"&gt;&lt;span class="cl-38fb89db"&gt; 2 &lt;/span&gt;&lt;span class="cl-38fb89dc"&gt;No action Condition 2025 (replaces LSM25B)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="4d9783d7-5fc6-4452-9023-9144fb3abfb8"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("4d9783d7-5fc6-4452-9023-9144fb3abfb8");
+var template = document.getElementById("d7e2e8bc-4c8b-412b-bc2e-5495afa48d3e");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+
+
+---
+name: methods
+
+### Methods
+* Due to variability in concentration-Discharge relationships and lack of water quality-hydrodynamic model (like ENLM) monthly mean TP and TN concentration data was used. 
+
+
+&lt;template id="626cd8e0-9f5f-4ba9-b617-af49971e9850"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-39201118{border-collapse:collapse;}.cl-391910fc{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-391910fd{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-391910fe{font-family:'Arial';font-size:9pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-391910ff{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-39191100{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-39191101{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-39191102{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-39195efe{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39195eff{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39195f00{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39195f01{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39195f02{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39195f03{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39195f04{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39195f05{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39195f06{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39195f07{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39195f08{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-391985f0{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-391985f1{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-391985f2{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-391985f3{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-391985f4{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(190, 190, 190, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-391985f5{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-391985f6{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(190, 190, 190, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-39201118'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f08"&gt;&lt;p class="cl-391910ff"&gt;&lt;span class="cl-391910fc"&gt;&lt;/span&gt;&lt;span class="cl-391910fd"&gt; &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="2"class="cl-391985f0"&gt;&lt;p class="cl-391910ff"&gt;&lt;span class="cl-391910fc"&gt;Total Phosphorus&lt;br&gt;(μg L⁻¹)&lt;/span&gt;&lt;span class="cl-391910fd"&gt; &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="2"class="cl-391985f2"&gt;&lt;p class="cl-391910ff"&gt;&lt;span class="cl-391910fc"&gt;Total Nitrogen&lt;br&gt;(mg L⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-391985f5"&gt;&lt;p class="cl-391910ff"&gt;&lt;span class="cl-391910fc"&gt;Month&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-391985f3"&gt;&lt;p class="cl-391910ff"&gt;&lt;span class="cl-391910fc"&gt;S-77&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-391985f4"&gt;&lt;p class="cl-391910ff"&gt;&lt;span class="cl-391910fc"&gt;S-308&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-391985f6"&gt;&lt;p class="cl-391910ff"&gt;&lt;span class="cl-391910fc"&gt;S-77&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-391985f3"&gt;&lt;p class="cl-391910ff"&gt;&lt;span class="cl-391910fc"&gt;S-308&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f01"&gt;&lt;p class="cl-39191100"&gt;&lt;span class="cl-391910fe"&gt;Jan&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;79 ± 34 (71)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f00"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;256 ± 143 (45)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195efe"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.43 ± 0.23 (70)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;2.25 ± 0.97 (44)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f01"&gt;&lt;p class="cl-39191100"&gt;&lt;span class="cl-391910fe"&gt;Feb&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;87 ± 46 (64)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f00"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;237 ± 150 (42)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195efe"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.46 ± 0.35 (65)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;2.00 ± 0.74 (42)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f01"&gt;&lt;p class="cl-39191100"&gt;&lt;span class="cl-391910fe"&gt;Mar&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;93 ± 34 (65)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f00"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;230 ± 181 (41)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195efe"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.55 ± 0.59 (65)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;2.03 ± 1.10 (41)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f01"&gt;&lt;p class="cl-39191100"&gt;&lt;span class="cl-391910fe"&gt;Apr&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;104 ± 38 (67)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f00"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;220 ± 92 (43)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195efe"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.54 ± 0.24 (65)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.95 ± 0.49 (43)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f01"&gt;&lt;p class="cl-39191100"&gt;&lt;span class="cl-391910fe"&gt;May&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;113 ± 61 (74)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f00"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;187 ± 73 (49)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195efe"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.69 ± 0.55 (68)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.80 ± 0.43 (44)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f01"&gt;&lt;p class="cl-39191100"&gt;&lt;span class="cl-391910fe"&gt;Jun&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;117 ± 83 (64)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f00"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;174 ± 81 (41)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195efe"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.65 ± 0.42 (64)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.64 ± 0.61 (38)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f01"&gt;&lt;p class="cl-39191100"&gt;&lt;span class="cl-391910fe"&gt;Jul&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;152 ± 103 (71)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f00"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;212 ± 121 (47)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195efe"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.78 ± 0.41 (69)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.55 ± 0.28 (46)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f01"&gt;&lt;p class="cl-39191100"&gt;&lt;span class="cl-391910fe"&gt;Aug&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;159 ± 90 (72)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f00"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;187 ± 108 (48)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195efe"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.81 ± 0.72 (66)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.57 ± 0.49 (48)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f01"&gt;&lt;p class="cl-39191100"&gt;&lt;span class="cl-391910fe"&gt;Sep&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;155 ± 87 (73)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f00"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;185 ± 95 (50)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195efe"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.72 ± 0.47 (70)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.60 ± 0.48 (50)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f01"&gt;&lt;p class="cl-39191100"&gt;&lt;span class="cl-391910fe"&gt;Oct&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;109 ± 100 (72)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f00"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;177 ± 85 (46)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195efe"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.64 ± 0.66 (69)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.56 ± 0.31 (45)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f01"&gt;&lt;p class="cl-39191100"&gt;&lt;span class="cl-391910fe"&gt;Nov&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;81 ± 42 (69)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f00"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;192 ± 88 (44)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195efe"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.47 ± 0.33 (67)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195eff"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.86 ± 0.64 (44)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39195f02"&gt;&lt;p class="cl-39191100"&gt;&lt;span class="cl-391910fe"&gt;Dec&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f05"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;83 ± 40 (69)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f03"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;235 ± 129 (45)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f04"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;1.45 ± 0.24 (67)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39195f05"&gt;&lt;p class="cl-39191101"&gt;&lt;span class="cl-391910fe"&gt;2.07 ± 0.77 (45)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;tfoot&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  colspan="5"class="cl-39195f07"&gt;&lt;p class="cl-39191102"&gt;&lt;span class="cl-391910fd"&gt; &lt;/span&gt;&lt;span class="cl-391910fc"&gt; Mean ± Std Dev (N)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  colspan="5"class="cl-39195f07"&gt;&lt;p class="cl-39191102"&gt;&lt;span class="cl-391910fd"&gt; &lt;/span&gt;&lt;span class="cl-391910fc"&gt;POR: May 1999 - April 2020&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="71754bdd-ba48-434d-a739-71ab4c64a24b"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("71754bdd-ba48-434d-a739-71ab4c64a24b");
+var template = document.getElementById("626cd8e0-9f5f-4ba9-b617-af49971e9850");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+
+---
+name: methods2
+
+### Methods
+
+* Monthly TP/TN concentrations were pulled from a normal distribution using monthly mean and sd values for each month within the simulation period of record (1965 - 2016).
+
+* If negative "simulated" values occurred (its possible given a normal distribution), the values was set to the POR mean value. 
+
+
+.left-code[
+*Example R Code*
+
+```r
+set.seed(123)
+mean.val&lt;-0.1168
+sd.val&lt;-0.0826
+
+sim.TP&lt;-rnorm(1,
+              mean=mean.val,
+              sd=sd.val)
+sim.TP
+```
+
+```
+## [1] 0.07050471
+```
+]
+
+.right-plot[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="SCCF_iter2_LOSOM_LakeBasinLoad_files/figure-html/unnamed-chunk-6-1.png" alt="Example normal distribution with with `sim.TP` identified."  /&gt;
+&lt;p class="caption"&gt;Example normal distribution with with `sim.TP` identified.&lt;/p&gt;
+&lt;/div&gt;
+]
+
+---
+name: methods3
+
+### Methods
+
+**Proof of concept**
+
+* Comparison of observed and simulated WQ data
+  * POR: May 1999 - Apirl 2020
+  * Want to ensure long-term mean values are comparable (i.e. POR mean).
+
+
+&lt;template id="666810a1-512e-46a4-87a1-683abf0287f9"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-394816a4{border-collapse:collapse;}.cl-393ad886{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-393aff78{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-393aff79{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-393b2674{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b2675{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b2676{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b2677{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b2678{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b2679{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b267a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b267b{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b267c{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b267d{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b267e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b4d66{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b4d67{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b4d68{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b4d69{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b4d6a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b4d6b{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-393b4d6c{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-394816a4'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  colspan="2"class="cl-393b4d68"&gt;&lt;p class="cl-393aff78"&gt;&lt;span class="cl-393ad886"&gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="2"class="cl-393b4d67"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;Observed&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="2"class="cl-393b4d67"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;Simulated&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-393b4d6c"&gt;&lt;p class="cl-393aff78"&gt;&lt;span class="cl-393ad886"&gt;Site&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b4d6b"&gt;&lt;p class="cl-393aff78"&gt;&lt;span class="cl-393ad886"&gt;Parameter&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b4d6a"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;Mean&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b4d6a"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;St. Dev.&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b4d6a"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;Mean&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b4d6a"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;St. Dev.&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  rowspan="2"class="cl-393b2676"&gt;&lt;p class="cl-393aff78"&gt;&lt;span class="cl-393ad886"&gt;S77&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b2675"&gt;&lt;p class="cl-393aff78"&gt;&lt;span class="cl-393ad886"&gt;TP (mg L⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b2674"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;0.1116&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b2674"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;0.0741&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b2674"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;0.1175&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b2674"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;0.0682&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-393b2679"&gt;&lt;p class="cl-393aff78"&gt;&lt;span class="cl-393ad886"&gt;TN (mg L⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b2677"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;1.60&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b2677"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;0.48&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b2677"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;1.61&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b2677"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;0.47&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  rowspan="2"class="cl-393b267c"&gt;&lt;p class="cl-393aff78"&gt;&lt;span class="cl-393ad886"&gt;S308&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b267b"&gt;&lt;p class="cl-393aff78"&gt;&lt;span class="cl-393ad886"&gt;TP (mg L⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b267a"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;0.2071&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b267a"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;0.1175&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b267a"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;0.2176&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b267a"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;0.1079&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-393b267d"&gt;&lt;p class="cl-393aff78"&gt;&lt;span class="cl-393ad886"&gt;TN (mg L⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b267e"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;1.82&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b267e"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;0.68&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b267e"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;1.84&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-393b267e"&gt;&lt;p class="cl-393aff79"&gt;&lt;span class="cl-393ad886"&gt;0.67&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="8af2497e-650c-410a-87ba-3d2b0d399e80"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("8af2497e-650c-410a-87ba-3d2b0d399e80");
+var template = document.getElementById("666810a1-512e-46a4-87a1-683abf0287f9");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+---
+name: methods3
+
+### Methods
+
+* Simulated TP &amp; TN conc. were paired with daily discharge values for each alternative during the period of simulation.
+* Load were estimated by interpolating concentrations daily from simulated data. Daily interpolated
+water quality concentrations were then multiplied by daily flow and summed for each WY.
+* Load and FWM were estimated for S-77, S-308 and S-308 backflow events.
+
+**Assumptions**
+* No annual (or seasonal) trend in TP or TN concentrations during the period of simulation.
+&lt;!-- * Monthly mean TN concentrations at S77 significantly declined during the WY2000 - 2020 period (τ = -0.19, ρ &lt;0.01, Thiel-Sen Slope: -0.01 mg N L⁻¹ WY⁻¹) .  --&gt;
+
+* Monthly data come from a normal distribution.
+
+
+
+---
+name: S77 bxp 
+
+### S-77 Load
+
+&lt;img src="./Plots/Iteration_2/S77_Load_bxp.png" width="70%" style="display: block; margin: auto;" /&gt;
+.center[Boxplot representing annual TP (top) and TN (bottom) loads during the simulation period across alternatives. Black-dashed line represents the FWO median and green dashed line and point in boxplot indicates period of simulation mean.]
+
+---
+name: S77 loadsum
+
+### S-77 Load Summary
+
+.pull-left[
+&lt;img src="./Plots/Iteration_2/S77_Load_PerDiff.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Percent difference of average load relative to the FWO (NA25) alternative over the entire simulation period for total phosphorus (left) and total nitrogen (right) loads.
+
+]
+
+---
+name: S77 bxp2 
+
+### S-77 FWM
+
+&lt;img src="./Plots/Iteration_2/S77_FWM_bxp.png" width="70%" style="display: block; margin: auto;" /&gt;
+.center[Boxplot representing annual TP (top) and TN (bottom) flow-weighted mean concentration during the simulation period across alternatives. Black-dashed line represents the FWO median and green dashed line and point in boxplot indicates period of simulation mean.]
+
+---
+name: S77 loadsum
+
+### S-77 FWM Summary
+
+.pull-left[
+&lt;img src="./Plots/Iteration_2/S77_FWM_PerDiff.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Percent difference of average load relative to the FWO (NA25) alternative over the entire simulation period for total phosphorus (left) and total nitrogen (right) loads.
+
+]
+
+---
+name: S308 bxp 
+
+### S-308 Load
+
+&lt;img src="./Plots/Iteration_2/S308_Load_bxp.png" width="70%" style="display: block; margin: auto;" /&gt;
+.center[Boxplot representing annual TP (top) and TN (bottom) loads during the simulation period across alternatives. Black-dashed line represents the FWO median and green dashed line and point in boxplot indicates period of simulation mean.]
+
+---
+name: S308 loadsum
+
+### S-308 Load Summary
+
+.pull-left[
+&lt;img src="./Plots/Iteration_2/S308_Load_PerDiff.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Percent difference of average load relative to the FWO (NA25) alternative over the entire simulation period for total phosphorus (left) and total nitrogen (right) loads.
+
+]
+
+---
+name: S308 bxp2 
+
+### S-308 FWM
+
+&lt;img src="./Plots/Iteration_2/S308_FWM_bxp.png" width="70%" style="display: block; margin: auto;" /&gt;
+.center[Boxplot representing annual TP (top) and TN (bottom) flow-weighted mean concentration during the simulation period across alternatives. Black-dashed line represents the FWO median and green dashed line and point in boxplot indicates period of simulation mean.]
+
+---
+name: S308 loadsum
+
+### S-308 FWM Summary
+
+.pull-left[
+&lt;img src="./Plots/Iteration_2/S308_FWM_PerDiff.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+Percent difference of average load relative to the FWO (NA25) alternative over the entire simulation period for total phosphorus (left) and total nitrogen (right) loads.
+
+]
+
+---
+name: summary
+
+### S-77 Summary
+
+
+&lt;template id="e50f1d4c-2ee3-48c6-a6c6-064f96353989"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-399bcbaa{border-collapse:collapse;}.cl-3993badc{font-family:'Times New Roman';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3993badd{font-family:'Times New Roman';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-3993bade{font-family:'Times New Roman';font-size:9pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-3993e1ce{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-3993e1cf{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-3993e1d0{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-3993e1d1{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-399408c0{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-399408c1{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-399408c2{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-399408c3{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-399408c4{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-399408c5{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-399408c6{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-399408c7{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-399408c8{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-399408c9{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-399408ca{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39942fb2{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39942fb3{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39942fb4{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39942fb5{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39942fb6{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-399bcbaa'&gt;&lt;caption class="Table Caption"&gt;Period of simulation annual mean discharge, total phoshphorus and total nitrogen load and flow-weight mean concentrations&lt;/caption&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39942fb3"&gt;&lt;p class="cl-3993e1ce"&gt;&lt;span class="cl-3993badc"&gt;Alt&lt;/span&gt;&lt;span class="cl-3993badd"&gt; &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39942fb5"&gt;&lt;p class="cl-3993e1cf"&gt;&lt;span class="cl-3993badc"&gt;Discharge&lt;br&gt;(kAc-Ft WY⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39942fb6"&gt;&lt;p class="cl-3993e1cf"&gt;&lt;span class="cl-3993badc"&gt;TP Load&lt;br&gt;(kg WY⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39942fb6"&gt;&lt;p class="cl-3993e1cf"&gt;&lt;span class="cl-3993badc"&gt;TN Load&lt;br&gt;(kg WY⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39942fb4"&gt;&lt;p class="cl-3993e1cf"&gt;&lt;span class="cl-3993badc"&gt;TP FWM&lt;br&gt;(μg L⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39942fb4"&gt;&lt;p class="cl-3993e1cf"&gt;&lt;span class="cl-3993badc"&gt;TN FWM&lt;br&gt;(mg L⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-399408c1"&gt;&lt;p class="cl-3993e1d0"&gt;&lt;span class="cl-3993bade"&gt;NA25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c2"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;573.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;75241&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1106665&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;103.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1.56&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-399408c1"&gt;&lt;p class="cl-3993e1d0"&gt;&lt;span class="cl-3993bade"&gt;ECBr&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c2"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;560.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;73443&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1079641&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;103.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1.56&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-399408c1"&gt;&lt;p class="cl-3993e1d0"&gt;&lt;span class="cl-3993bade"&gt;AA&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c2"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;619.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;83901&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1209732&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;106.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1.58&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-399408c1"&gt;&lt;p class="cl-3993e1d0"&gt;&lt;span class="cl-3993bade"&gt;BB&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c2"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;461.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;60602&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;884074&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;103.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1.56&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-399408c1"&gt;&lt;p class="cl-3993e1d0"&gt;&lt;span class="cl-3993bade"&gt;CC&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c2"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;623.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;84091&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1216789&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;106.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1.57&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-399408c1"&gt;&lt;p class="cl-3993e1d0"&gt;&lt;span class="cl-3993bade"&gt;DD&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c2"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;564.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;75611&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1096539&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;107.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1.58&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-399408c1"&gt;&lt;p class="cl-3993e1d0"&gt;&lt;span class="cl-3993bade"&gt;EE1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c2"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;517.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;67049&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c0"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;996968&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;102.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c3"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1.56&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-399408c4"&gt;&lt;p class="cl-3993e1d0"&gt;&lt;span class="cl-3993bade"&gt;EE2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c6"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;545.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c7"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;70915&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c7"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1048721&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c5"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;105.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-399408c5"&gt;&lt;p class="cl-3993e1d1"&gt;&lt;span class="cl-3993bade"&gt;1.57&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;tfoot&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  colspan="6"class="cl-39942fb2"&gt;&lt;p class="cl-3993e1ce"&gt;&lt;span class="cl-3993badd"&gt; &lt;/span&gt;&lt;span class="cl-3993badc"&gt;WY1966 - 2016 (May 1965 - Apirl 2016)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="d63d736e-6320-46d1-81d8-246b67f8a5f5"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("d63d736e-6320-46d1-81d8-246b67f8a5f5");
+var template = document.getElementById("e50f1d4c-2ee3-48c6-a6c6-064f96353989");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+---
+name: summary
+
+### S-308 Summary
+
+
+&lt;template id="b132da18-c033-48ae-8783-aab9d248b327"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-39c039ea{border-collapse:collapse;}.cl-39b8c4e4{font-family:'Times New Roman';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-39b8c4e5{font-family:'Times New Roman';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-39b8c4e6{font-family:'Times New Roman';font-size:9pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-39b8ebea{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-39b8ebeb{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-39b8ebec{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-39b8ebed{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-39b939c4{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b939c5{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b939c6{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b939c7{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b939c8{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b939c9{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b939ca{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b939cb{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b939cc{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b939cd{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b939ce{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b960ac{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b960ad{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b960ae{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b960af{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b960b0{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b960b1{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b960b2{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b960b3{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b960b4{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b960b5{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b960b6{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b9878a{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b9878b{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b9878c{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b9878d{width:90pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 1pt solid rgba(102, 102, 102, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39b9878e{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(102, 102, 102, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-39c039ea'&gt;&lt;caption class="Table Caption"&gt;Period of simulation annual mean discharge, total phoshphorus and total nitrogen load and flow-weight mean concentrations for S308 and S-308 Backflow.&lt;/caption&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39b960b0"&gt;&lt;p class="cl-39b8ebea"&gt;&lt;span class="cl-39b8c4e4"&gt;&lt;/span&gt;&lt;span class="cl-39b8c4e5"&gt; &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="5"class="cl-39b960b4"&gt;&lt;p class="cl-39b8ebeb"&gt;&lt;span class="cl-39b8c4e4"&gt;S-308&lt;br&gt;(From Lake to C-44 Canal)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="3"class="cl-39b960b3"&gt;&lt;p class="cl-39b8ebeb"&gt;&lt;span class="cl-39b8c4e4"&gt;S-308 Back Flow&lt;br&gt;(From C-44 Canal to Lake)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39b960b6"&gt;&lt;p class="cl-39b8ebea"&gt;&lt;span class="cl-39b8c4e4"&gt;Alt&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b9878a"&gt;&lt;p class="cl-39b8ebeb"&gt;&lt;span class="cl-39b8c4e4"&gt;Discharge&lt;br&gt;(kAc-Ft WY⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b9878c"&gt;&lt;p class="cl-39b8ebeb"&gt;&lt;span class="cl-39b8c4e4"&gt;TP Load&lt;br&gt;(kg WY⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b9878c"&gt;&lt;p class="cl-39b8ebeb"&gt;&lt;span class="cl-39b8c4e4"&gt;TN Load&lt;br&gt;(kg WY⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b9878b"&gt;&lt;p class="cl-39b8ebeb"&gt;&lt;span class="cl-39b8c4e4"&gt;TP FWM&lt;br&gt;(μg L⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b9878e"&gt;&lt;p class="cl-39b8ebeb"&gt;&lt;span class="cl-39b8c4e4"&gt;TN FWM&lt;br&gt;(mg L⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b9878d"&gt;&lt;p class="cl-39b8ebeb"&gt;&lt;span class="cl-39b8c4e4"&gt;Discharge&lt;br&gt;(kAc-Ft WY⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b9878c"&gt;&lt;p class="cl-39b8ebeb"&gt;&lt;span class="cl-39b8c4e4"&gt;TP Load&lt;br&gt;(kg WY⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b9878c"&gt;&lt;p class="cl-39b8ebeb"&gt;&lt;span class="cl-39b8c4e4"&gt;TN Load&lt;br&gt;(kg WY⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39b939c6"&gt;&lt;p class="cl-39b8ebec"&gt;&lt;span class="cl-39b8c4e6"&gt;NA25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c5"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;190.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;50483&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;435807&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c9"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;214.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c7"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;1.86&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c8"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;38.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;9889&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;83802&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39b939c6"&gt;&lt;p class="cl-39b8ebec"&gt;&lt;span class="cl-39b8c4e6"&gt;ECBr&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c5"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;240.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;64052&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;551943&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c9"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;218.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c7"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;1.89&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c8"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;45.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;11395&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;96059&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39b939c6"&gt;&lt;p class="cl-39b8ebec"&gt;&lt;span class="cl-39b8c4e6"&gt;AA&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c5"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;54.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;13552&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;118896&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c9"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;209.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c7"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;1.84&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c8"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;46.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;12073&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;101936&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39b939c6"&gt;&lt;p class="cl-39b8ebec"&gt;&lt;span class="cl-39b8c4e6"&gt;BB&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c5"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;229.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;60450&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;520088&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c9"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;211.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c7"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;1.84&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c8"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;37.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;9303&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;79854&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39b939c6"&gt;&lt;p class="cl-39b8ebec"&gt;&lt;span class="cl-39b8c4e6"&gt;CC&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c5"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;75.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;18712&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;166548&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c9"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;207.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c7"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;1.83&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c8"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;45.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;11872&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;100787&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39b939c6"&gt;&lt;p class="cl-39b8ebec"&gt;&lt;span class="cl-39b8c4e6"&gt;DD&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c5"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;149.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;38819&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;337866&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c9"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;215.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c7"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;1.85&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c8"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;42.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;10836&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;92671&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39b939c6"&gt;&lt;p class="cl-39b8ebec"&gt;&lt;span class="cl-39b8c4e6"&gt;EE1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c5"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;189.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;49455&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;428082&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c9"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;207.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c7"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;1.82&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c8"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;46.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;11895&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939c4"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;100734&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39b939ce"&gt;&lt;p class="cl-39b8ebec"&gt;&lt;span class="cl-39b8c4e6"&gt;EE2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939cb"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;170.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939cd"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;43798&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939cd"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;382382&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939ca"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;211.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939cc"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;1.84&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b960ac"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;45.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939cd"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;11801&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39b939cd"&gt;&lt;p class="cl-39b8ebed"&gt;&lt;span class="cl-39b8c4e6"&gt;99738&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;tfoot&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  colspan="9"class="cl-39b960b0"&gt;&lt;p class="cl-39b8ebea"&gt;&lt;span class="cl-39b8c4e5"&gt; &lt;/span&gt;&lt;span class="cl-39b8c4e4"&gt;WY1966 - 2016 (May 1965 - Apirl 2016)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="34a55479-f9e2-4f2d-afa7-6d348bddac72"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("34a55479-f9e2-4f2d-afa7-6d348bddac72");
+var template = document.getElementById("b132da18-c033-48ae-8783-aab9d248b327");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+---
+name: Summary
+
+### Summary
+
+
+&lt;template id="b9492f4f-98d5-47e2-a918-0580da6c299f"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-39d4013c{border-collapse:collapse;}.cl-39cd7754{font-family:'Times New Roman';font-size:13pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-39cd7755{font-family:'Times New Roman';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-39cd7756{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:2.5pt;padding-top:2.5pt;padding-left:2.5pt;padding-right:2.5pt;line-height: 1;background-color:transparent;}.cl-39cd7757{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:2.5pt;padding-top:2.5pt;padding-left:2.5pt;padding-right:2.5pt;line-height: 1;background-color:transparent;}.cl-39cd9e50{width:257pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cd9e51{width:225.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cd9e52{width:40.1pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cd9e53{width:225.9pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cd9e54{width:257pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cd9e55{width:40.1pt;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cd9e56{width:225.9pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cd9e57{width:40.1pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cd9e58{width:257pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cd9e59{width:40.1pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cd9e5a{width:257pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cdc542{width:225.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cdc543{width:40.1pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cdc544{width:257pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-39cdc545{width:225.9pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-39d4013c'&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39cdc543"&gt;&lt;p class="cl-39cd7756"&gt;&lt;span class="cl-39cd7754"&gt; &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39cdc545"&gt;&lt;p class="cl-39cd7757"&gt;&lt;span class="cl-39cd7754"&gt;S77&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39cdc544"&gt;&lt;p class="cl-39cd7757"&gt;&lt;span class="cl-39cd7754"&gt;S308&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  rowspan="2"class="cl-39cd9e52"&gt;&lt;p class="cl-39cd7756"&gt;&lt;span class="cl-39cd7755"&gt;Load&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39cd9e51"&gt;&lt;p class="cl-39cd7757"&gt;&lt;span class="cl-39cd7755"&gt;BB lower relative to FWO&lt;br&gt;(lower lake flows)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39cd9e50"&gt;&lt;p class="cl-39cd7757"&gt;&lt;span class="cl-39cd7755"&gt;AA and CC lower relative to FWO&lt;br&gt;(lower lake flows)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39cd9e53"&gt;&lt;p class="cl-39cd7757"&gt;&lt;span class="cl-39cd7755"&gt;CC higher relative to FWO&lt;br&gt;(higher lake flows)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39cd9e54"&gt;&lt;p class="cl-39cd7757"&gt;&lt;span class="cl-39cd7755"&gt;BB higher relative to FWO&lt;br&gt;(higher lake flows)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  rowspan="2"class="cl-39cd9e57"&gt;&lt;p class="cl-39cd7756"&gt;&lt;span class="cl-39cd7755"&gt;FWM&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39cd9e56"&gt;&lt;p class="cl-39cd7757"&gt;&lt;span class="cl-39cd7755"&gt;EE1 lower relative to FWO&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39cd9e58"&gt;&lt;p class="cl-39cd7757"&gt;&lt;span class="cl-39cd7755"&gt;CC lower relative to FWO&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-39cdc542"&gt;&lt;p class="cl-39cd7757"&gt;&lt;span class="cl-39cd7755"&gt;DD higher relative to FWO&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-39cd9e5a"&gt;&lt;p class="cl-39cd7757"&gt;&lt;span class="cl-39cd7755"&gt;DD higher relative to FWO for TP&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="6cf34b1e-a33e-4a7d-abd7-a4323e680f24"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("6cf34b1e-a33e-4a7d-abd7-a4323e680f24");
+var template = document.getElementById("b9492f4f-98d5-47e2-a918-0580da6c299f");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+* Some plans (AA,CC,DD &amp; EEs) increase the flow and load associated with backflow at the S308.
+  * of the water discharged through S308, 84% and 60% is returned to the lake as backflow in plan AA and CC, respecitvley. 
+
+---
+name: Acknowledgments
+
+### Acknowledgments
+
+&lt;img src="https://www.sfwmd.gov/sites/default/files/documents/sfwmd-seal-hq.png" width="8%" /&gt;
+South Florida Water Management District ([DBHYDRO](https://www.sfwmd.gov/science-data/dbhydro))
+
+
+&lt;img src="https://www.publications.usace.army.mil/Portals/76/Publications/EngineerStandardsGraphics/gs-03.gif" width="8%" /&gt;
+US Army Corps of Engineers ([USACE LOSOM](https://www.saj.usace.army.mil/LOSOM/))
+
+  * Interagency Modeling Center
+
+[HTML Slide deck](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_LakeBasinLoad.html) | [PDF Slide deck](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_LakeBasinLoad.pdf) | [RMarkdown Source](https://github.com/SwampThingPaul/LOSOM_ModelEval) &amp;copy; Julian (2021) [![Creative Commons License](https://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
+
+[Analysis Script](https://raw.githubusercontent.com/SwampThingPaul/LOSOM_ModelEval/main/src/iter2_LakeBasinLoad_eval.R)
+
+.pull-left[
+&lt;img src="./Plots/SCCF Logo knockout_c.png" width="35%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+&lt;img src="./Plots/ConSWFL.jpeg" width="45%" style="display: block; margin: auto;" /&gt;
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
