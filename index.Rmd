@@ -133,11 +133,11 @@ dat2%>%
 <ul>
 <li>Iteration 2 modeling:</li>
 <ul>
-<li> DRAFT - Iteration 2 Modeling Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM){target="_blank"} |</li>
-<li> Iteration 2 - Evaluation Technical Workshop (2021-06-22) | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshop){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshop.pdf){target="_blank"}|</li>
-<li> Iteration 2 - Evaluation Technical Workshop - Climate Consideration (2021-06-30) | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshopClimate.html){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshopClimate.pdf){target="_blank"} |</li>
-<li> Iteration 2 -  Lake & Estuary Summary | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter2_summary){target="_blank"} |</li>
-<li> Iteration 2 -  Estuary Nutrient Loading Model results | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_ENLMrslt){target="_blank"} |
+<li> DRAFT - Modeling Evaluation | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM){target="_blank"} |</li>
+<li> Evaluation Technical Workshop (2021-06-22) | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshop){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshop.pdf){target="_blank"}|</li>
+<li> Evaluation Technical Workshop - Climate Consideration (2021-06-30) | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshopClimate.html){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_TechWorkshopClimate.pdf){target="_blank"} |</li>
+<li> Lake & Estuary Summary | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter2_summary){target="_blank"} |</li>
+<li> Estuary Nutrient Loading Model results | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_ENLMrslt){target="_blank"} |
  [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_ENLMrslt.pdf){target="_blank"} |</li>
 
 ```{r,echo=F,fig.align="center"}
@@ -166,8 +166,9 @@ dat2%>%
 
 ```
 <br>
-<li> Iteration 2 -  S77/S308 Nutrient Loading estimates | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_LakeBasinLoad){target="_blank"} |
+<li> S77/S308 Nutrient Loading estimates | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_LakeBasinLoad){target="_blank"} |
  [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_LakeBasinLoad.pdf){target="_blank"} |</li>
+<li> Evaluation with SR3.5 | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_SR35){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_SR35.pdf){target="_blank"} |</li>
 </ul>
 </ul>
 <br>
