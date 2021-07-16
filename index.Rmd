@@ -146,7 +146,7 @@ dat2=read.csv("C:/Julian_LaCie/_GitHub/LOSOM_ModelEval/Export/RSMBN_iter2_load_S
 
 library(downloadthis)
 
-dat1%>%
+subset(dat1,Alt!="SR3.5")%>%
   download_this(
     output_name = "Iter2_CRE_ENLM",
     output_extension = ".xlsx",
@@ -155,7 +155,7 @@ dat1%>%
     has_icon = TRUE,
     icon = "fa fa-file-excel")
 
-dat2%>%
+subset(dat2,Alt!="SR3.5")%>%
   download_this(
     output_name = "Iter2_SLE_ENLM",
     output_extension = ".xlsx",
