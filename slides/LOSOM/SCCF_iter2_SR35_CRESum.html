@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>SCCF LOSOM iter2</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Paul Julian" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/tabwid/tabwid.css" rel="stylesheet" />
+    <link rel="stylesheet" href="libs/WhiteBlue.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+layout: true
+
+&lt;div class="my-footer"&gt;
+&lt;span&gt;  &lt;/span&gt;
+&lt;/div&gt;
+
+---
+name: title
+class: left, middle
+
+### Lake Okeechobee System Operating Manual
+
+.pull-left[
+#### Iteration 2 Modeling Evaluation
+
+*Sanibel-Captiva Conservation Foundation*
+
+*Conservancy of Southwest Florida*
+
+**DRAFT** - August 10, 2021
+
+]
+&lt;!-- this ends up being the title slide since seal = FALSE--&gt;
+
+.pull-right[
+&lt;img src="./Plots/SCCF Logo knockout_c.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="./Plots/ConSWFL.jpeg" width="40%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+
+.footnote[
+Paul Julian PhD&lt;br&gt;[<svg aria-hidden="true" role="img" viewBox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-right:0.2em;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>](mailto: pjulian@sccf.org) .small[pjulian@sccf.org]
+
+.small[Use cursor keys for navigation, press .red["O"] for a slide .red[O]verview]
+]
+---
+name: USACE CRE
+class: middle
+
+
+&lt;img src="./Plots/USACE_CRE_MCDA.png" width="150%" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+.small[from 17 June 2021 PDT Meeting Presentation]
+]
+
+---
+name: CREQ
+
+### Caloosahatchee Estuary
+
+
+&lt;template id="2a5e1fe2-0d3e-4217-850e-4091860037ed"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-6d33ab42{border-collapse:collapse;}.cl-6d2ad7b0{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d2ad7b1{font-family:'Times New Roman';font-size:6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3pt;}.cl-6d2ad7b2{font-family:'Times New Roman';font-size:9pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d2ad7b3{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-6d2ad7b4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d2ad7b5{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6d2ad7b6{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6d2ad7b7{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6d2b2594{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d2b2595{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d2b2596{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d2b2597{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d2b2598{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d2b2599{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d2b259a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d2b259b{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d2b259c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d2b259d{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-6d33ab42'&gt;&lt;caption class="Table Caption"&gt;S77 and S79 average total discharge comparison between alternatives with percent change relative to FWO and ECB across the entire simulation period of record (Jan 1965 - Dec 2016).&lt;/caption&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d2b259a"&gt;&lt;p class="cl-6d2ad7b5"&gt;&lt;span class="cl-6d2ad7b0"&gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="2"class="cl-6d2b259b"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b0"&gt;Average Total&lt;br&gt;Annual Discharge&lt;br&gt;(x1000 Ac-Ft Yr⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="2"class="cl-6d2b259b"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b0"&gt;% Change Compared to FWO&lt;/span&gt;&lt;span class="cl-6d2ad7b1"&gt; 1 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d2b259c"&gt;&lt;p class="cl-6d2ad7b5"&gt;&lt;span class="cl-6d2ad7b0"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b259d"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b0"&gt;S77&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b259d"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b0"&gt;S79&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b259d"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b0"&gt;S77&lt;/span&gt;&lt;span class="cl-6d2ad7b1"&gt; 1 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b259d"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b0"&gt;S79&lt;/span&gt;&lt;span class="cl-6d2ad7b1"&gt; 1 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d2b2595"&gt;&lt;p class="cl-6d2ad7b5"&gt;&lt;span class="cl-6d2ad7b2"&gt;NA25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2594"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;584.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2594"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;1293.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2594"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2594"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d2b2597"&gt;&lt;p class="cl-6d2ad7b5"&gt;&lt;span class="cl-6d2ad7b2"&gt;ECBr&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;571.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;1298.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;-2.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;0.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d2b2597"&gt;&lt;p class="cl-6d2ad7b5"&gt;&lt;span class="cl-6d2ad7b2"&gt;AA&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;633.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;1342.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;8.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;3.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d2b2597"&gt;&lt;p class="cl-6d2ad7b5"&gt;&lt;span class="cl-6d2ad7b2"&gt;BB&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;467.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;1188.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;-20.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;-8.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d2b2595"&gt;&lt;p class="cl-6d2ad7b5"&gt;&lt;span class="cl-6d2ad7b2"&gt;CC&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2594"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;635.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2594"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;1347.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2594"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;8.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2594"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;4.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d2b2597"&gt;&lt;p class="cl-6d2ad7b5"&gt;&lt;span class="cl-6d2ad7b2"&gt;DD&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;574.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;1286.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;-1.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;-0.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d2b2597"&gt;&lt;p class="cl-6d2ad7b5"&gt;&lt;span class="cl-6d2ad7b2"&gt;EE1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;521.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;1229.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;-10.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;-5.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d2b2597"&gt;&lt;p class="cl-6d2ad7b5"&gt;&lt;span class="cl-6d2ad7b2"&gt;EE2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;552.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;1258.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;-5.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2596"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;-2.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d2b2599"&gt;&lt;p class="cl-6d2ad7b5"&gt;&lt;span class="cl-6d2ad7b2"&gt;SR3.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2598"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;529.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2598"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;1242.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2598"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;-9.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d2b2598"&gt;&lt;p class="cl-6d2ad7b6"&gt;&lt;span class="cl-6d2ad7b2"&gt;-4.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;tfoot&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  colspan="5"class="cl-6d2b259a"&gt;&lt;p class="cl-6d2ad7b7"&gt;&lt;span class="cl-6d2ad7b3"&gt; 1 &lt;/span&gt;&lt;span class="cl-6d2ad7b4"&gt;FWO = NA25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="1229c041-b281-4b1b-9739-07da4dbe593f"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("1229c041-b281-4b1b-9739-07da4dbe593f");
+var template = document.getElementById("2a5e1fe2-0d3e-4217-850e-4091860037ed");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+---
+name: CRE_RECOVER_Tab
+
+### RECOVER Salinity Envelope
+
+&lt;template id="7d325258-ec01-4c16-8818-e9f753457bb5"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-6d5713de{border-collapse:collapse;}.cl-6d4fd286{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d4fd287{font-family:'Times New Roman';font-size:9pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d4ff978{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6d4ff979{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6d502074{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d502075{width:72pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d502076{width:72pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d502077{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d502078{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d502079{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d50207a{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d50207b{width:72pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d50207c{width:72pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d50207d{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d50207e{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d504766{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-6d5713de'&gt;&lt;caption class="Table Caption"&gt;Percent difference relative to FWO for the Caloosahatchee River Estuary. Count of 14-day period within each respective flow category for each alternative across the simulation period of record. Estimates consistent with RECOVER methodology using 14-day moving average discharge values for S79. &lt;/caption&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d50207d"&gt;&lt;p class="cl-6d4ff978"&gt;&lt;span class="cl-6d4fd286"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d504766"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd286"&gt;&amp;lt;457 cfs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207e"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd286"&gt;457 - 750&lt;br&gt;cfs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207e"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd286"&gt;750 - 2100 cfs&lt;br&gt;(Optimum)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207e"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd286"&gt;2100 - 2600 cfs&lt;br&gt;(Stress)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d504766"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd286"&gt;&amp;gt; 2600 cfs&lt;br&gt;(Damaging)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207e"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd286"&gt;2600 - 4500&lt;br&gt;cfs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207e"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd286"&gt;4500 - 6500&lt;br&gt;cfs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207e"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd286"&gt;&amp;gt;6500 cfs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d502076"&gt;&lt;p class="cl-6d4ff978"&gt;&lt;span class="cl-6d4fd287"&gt;NA25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502074"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502075"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502075"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502075"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502074"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502075"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502075"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502075"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d502079"&gt;&lt;p class="cl-6d4ff978"&gt;&lt;span class="cl-6d4fd287"&gt;ECBr&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502078"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;630.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-43.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-21.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;14.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502078"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;19.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;23.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;15.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;13.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d502079"&gt;&lt;p class="cl-6d4ff978"&gt;&lt;span class="cl-6d4fd287"&gt;AA&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502078"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-26.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-11.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;1.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-6.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502078"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;16.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;20.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;15.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-13.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d502079"&gt;&lt;p class="cl-6d4ff978"&gt;&lt;span class="cl-6d4fd287"&gt;BB&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502078"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-9.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;0.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;10.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-17.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502078"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-15.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-15.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-13.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;5.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d502076"&gt;&lt;p class="cl-6d4ff978"&gt;&lt;span class="cl-6d4fd287"&gt;CC&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502074"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-9.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502075"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-34.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502075"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;20.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502075"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;25.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502074"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-8.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502075"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-3.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502075"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-14.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502075"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-1.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d502079"&gt;&lt;p class="cl-6d4ff978"&gt;&lt;span class="cl-6d4fd287"&gt;DD&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502078"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-17.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-4.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;2.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-26.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502078"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;7.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;12.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;16.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-1.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d502079"&gt;&lt;p class="cl-6d4ff978"&gt;&lt;span class="cl-6d4fd287"&gt;EE1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502078"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;11.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-35.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;25.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-31.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502078"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-6.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;6.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-15.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-50.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d502079"&gt;&lt;p class="cl-6d4ff978"&gt;&lt;span class="cl-6d4fd287"&gt;EE2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502078"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;13.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-30.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;18.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-36.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502078"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-0.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;9.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-13.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d502077"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-48.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d50207b"&gt;&lt;p class="cl-6d4ff978"&gt;&lt;span class="cl-6d4fd287"&gt;SR3.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207a"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-15.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207c"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-44.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207c"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;45.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207c"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-29.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207a"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-28.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207c"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-27.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207c"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;-19.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d50207c"&gt;&lt;p class="cl-6d4ff979"&gt;&lt;span class="cl-6d4fd287"&gt;15.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="c51e9478-0c21-4dbf-afd9-de13cc5cb0a3"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("c51e9478-0c21-4dbf-afd9-de13cc5cb0a3");
+var template = document.getElementById("7d325258-ec01-4c16-8818-e9f753457bb5");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+---
+name: CRE_RECOVER_Tab2
+
+### RECOVER Salinity Envelope
+
+
+&lt;template id="e5eb9717-0f49-4c46-b652-4bfa98767f05"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-6d716db0{border-collapse:collapse;}.cl-6d6abfa6{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d6abfa7{font-family:'Times New Roman';font-size:9pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d6ae698{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6d6ae699{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6d6b0d94{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d6b0d95{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d6b0d96{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d6b0d97{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d6b0d98{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d6b0d99{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d6b0d9a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d6b0d9b{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d6b0d9c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d6b0d9d{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-6d716db0'&gt;&lt;caption class="Table Caption"&gt;Percent difference relative to FWO for the Caloosahatchee River Estuary. Count of 14-day period within each respective flow category for each alternative across the simulation period of record. Estimates consistent with RECOVER methodology using 14-day moving average discharge values for S79. &lt;/caption&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d6b0d9a"&gt;&lt;p class="cl-6d6ae698"&gt;&lt;span class="cl-6d6abfa6"&gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="2"class="cl-6d6b0d9b"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa6"&gt;2100 - 2600 cfs&lt;br&gt;(Stress)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="2"class="cl-6d6b0d9b"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa6"&gt;&amp;gt; 2600 cfs&lt;br&gt;(Damaging)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d6b0d9d"&gt;&lt;p class="cl-6d6ae698"&gt;&lt;span class="cl-6d6abfa6"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d9c"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa6"&gt;Lake&lt;br&gt;Regulatory&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d9c"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa6"&gt;Basin&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d9c"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa6"&gt;Lake&lt;br&gt;Regulatory&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d9c"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa6"&gt;Basin&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d6b0d95"&gt;&lt;p class="cl-6d6ae698"&gt;&lt;span class="cl-6d6abfa7"&gt;NA25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d94"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d94"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d94"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d94"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d6b0d97"&gt;&lt;p class="cl-6d6ae698"&gt;&lt;span class="cl-6d6abfa7"&gt;ECBr&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;3.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;29.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;10.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;30.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d6b0d97"&gt;&lt;p class="cl-6d6ae698"&gt;&lt;span class="cl-6d6abfa7"&gt;AA&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;0.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-17.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;27.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;4.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d6b0d97"&gt;&lt;p class="cl-6d6ae698"&gt;&lt;span class="cl-6d6abfa7"&gt;BB&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-39.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;17.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-36.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;6.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d6b0d95"&gt;&lt;p class="cl-6d6ae698"&gt;&lt;span class="cl-6d6abfa7"&gt;CC&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d94"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;57.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d94"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-24.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d94"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-16.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d94"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;0.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d6b0d97"&gt;&lt;p class="cl-6d6ae698"&gt;&lt;span class="cl-6d6abfa7"&gt;DD&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-38.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-8.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;11.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;2.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d6b0d97"&gt;&lt;p class="cl-6d6ae698"&gt;&lt;span class="cl-6d6abfa7"&gt;EE1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-59.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;11.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-18.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;7.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d6b0d97"&gt;&lt;p class="cl-6d6ae698"&gt;&lt;span class="cl-6d6abfa7"&gt;EE2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-61.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;2.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-11.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d96"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;10.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d6b0d99"&gt;&lt;p class="cl-6d6ae698"&gt;&lt;span class="cl-6d6abfa7"&gt;SR3.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d98"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-65.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d98"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;25.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d98"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;-64.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d6b0d98"&gt;&lt;p class="cl-6d6ae699"&gt;&lt;span class="cl-6d6abfa7"&gt;9.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="c751845c-77fd-4124-802f-becc15250c35"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("c751845c-77fd-4124-802f-becc15250c35");
+var template = document.getElementById("e5eb9717-0f49-4c46-b652-4bfa98767f05");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+
+---
+name: CRE_RECOVER
+
+### RECOVER Salinity Envelope
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./Plots/Iteration_2/w_SR35/CRE_cat_total.png" alt="Count of 14-day period within each respective flow category for each alternative across the simulation period of record. Estimates consistent with RECOVER methodology using 14-day moving average discharge values for S79." width="100%" /&gt;
+&lt;p class="caption"&gt;Count of 14-day period within each respective flow category for each alternative across the simulation period of record. Estimates consistent with RECOVER methodology using 14-day moving average discharge values for S79.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+name: CRE_LakeDam
+
+### Damaging Lake Discharges
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./Plots/Iteration_2/w_SR35/S79Q_GT2100_annualmean.png" alt="Mean annual lake discharge volume when S79 flows are greater than 2100 cfs." width="100%" /&gt;
+&lt;p class="caption"&gt;Mean annual lake discharge volume when S79 flows are greater than 2100 cfs.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+name: USACE SLE
+class: middle
+
+
+&lt;img src="./Plots/USACE_SLE_MCDA.png" width="150%" style="display: block; margin: auto;" /&gt;
+
+.footnote[
+.small[from 17 June 2021 PDT Meeting Presentation]
+]
+
+
+---
+name: SLEQ
+
+### St Lucie Estuary
+
+
+&lt;template id="b8b0fe3a-d998-49bb-8013-f8401f35801e"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-6da200d8{border-collapse:collapse;}.cl-6d97037c{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d97037d{font-family:'Times New Roman';font-size:6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3pt;}.cl-6d97037e{font-family:'Times New Roman';font-size:9pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d97037f{font-family:'Arial';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-6d970380{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6d970381{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6d970382{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6d970383{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6d975174{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d975175{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d975176{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d975177{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d975178{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d975179{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d97517a{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d97517b{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d97517c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6d97517d{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-6da200d8'&gt;&lt;caption class="Table Caption"&gt;S308, S80 and S308 backflow (return to Lake) average total discharge comparison between alternatives with percent change relative to FWO and ECB across the entire simulation period of record (Jan 1965 - Dec 2016).&lt;/caption&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d97517a"&gt;&lt;p class="cl-6d970381"&gt;&lt;span class="cl-6d97037c"&gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="3"class="cl-6d97517b"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037c"&gt;Average Total&lt;br&gt;Annual Discharge&lt;br&gt;(x1000 Ac-Ft Yr⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="3"class="cl-6d97517b"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037c"&gt;% Change Compared to FWO&lt;/span&gt;&lt;span class="cl-6d97037d"&gt; 1 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d97517d"&gt;&lt;p class="cl-6d970381"&gt;&lt;span class="cl-6d97037c"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d97517c"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037c"&gt;S80&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d97517c"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037c"&gt;S308&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d97517c"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037c"&gt;S308&lt;br&gt;Backflow&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d97517c"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037c"&gt;S80&lt;/span&gt;&lt;span class="cl-6d97037d"&gt; 1 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d97517c"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037c"&gt;S308&lt;/span&gt;&lt;span class="cl-6d97037d"&gt; 1 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d97517c"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037c"&gt;S308&lt;br&gt;Backflow&lt;/span&gt;&lt;span class="cl-6d97037d"&gt; 1 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d975175"&gt;&lt;p class="cl-6d970381"&gt;&lt;span class="cl-6d97037e"&gt;NA25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975174"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;276.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975174"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;195.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975174"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;38.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975174"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975174"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975174"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d975177"&gt;&lt;p class="cl-6d970381"&gt;&lt;span class="cl-6d97037e"&gt;ECBr&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;334.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;246.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;45.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;21.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;26.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;18.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d975177"&gt;&lt;p class="cl-6d970381"&gt;&lt;span class="cl-6d97037e"&gt;AA&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;130.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;56.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;45.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-52.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-71.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;19.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d975177"&gt;&lt;p class="cl-6d970381"&gt;&lt;span class="cl-6d97037e"&gt;BB&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;316.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;234.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;36.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;14.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;20.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-4.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d975175"&gt;&lt;p class="cl-6d970381"&gt;&lt;span class="cl-6d97037e"&gt;CC&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975174"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;153.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975174"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;79.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975174"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;45.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975174"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-44.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975174"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-59.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975174"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;19.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d975177"&gt;&lt;p class="cl-6d970381"&gt;&lt;span class="cl-6d97037e"&gt;DD&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;230.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;152.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;41.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-16.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-22.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;8.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d975177"&gt;&lt;p class="cl-6d970381"&gt;&lt;span class="cl-6d97037e"&gt;EE1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;269.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;194.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;45.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-2.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-0.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;18.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d975177"&gt;&lt;p class="cl-6d970381"&gt;&lt;span class="cl-6d97037e"&gt;EE2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;248.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;173.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;44.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-10.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-10.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975176"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;17.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6d975178"&gt;&lt;p class="cl-6d970381"&gt;&lt;span class="cl-6d97037e"&gt;SR3.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975179"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;216.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975179"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;151.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975179"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;54.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975179"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-21.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975179"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;-22.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6d975179"&gt;&lt;p class="cl-6d970382"&gt;&lt;span class="cl-6d97037e"&gt;43.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;tfoot&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  colspan="7"class="cl-6d97517a"&gt;&lt;p class="cl-6d970383"&gt;&lt;span class="cl-6d97037f"&gt; 1 &lt;/span&gt;&lt;span class="cl-6d970380"&gt;FWO = NA25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="b5957b39-9b70-4c6c-9449-a0a21524acaa"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("b5957b39-9b70-4c6c-9449-a0a21524acaa");
+var template = document.getElementById("b8b0fe3a-d998-49bb-8013-f8401f35801e");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+---
+name: SLE_RECOVER_Tab
+
+### RECOVER Salinity Envelope
+
+&lt;template id="848ad952-90c1-40fd-9db0-d395d26c70fd"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-6dc1c8be{border-collapse:collapse;}.cl-6dbaf0de{font-family:'Times New Roman';font-size:10pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6dbaf0df{font-family:'Times New Roman';font-size:9pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6dbaf0e0{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6dbaf0e1{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6dbb3ed6{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dbb3ed7{width:72pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dbb3ed8{width:72pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dbb3ed9{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dbb3eda{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dbb3edb{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dbb3edc{width:72pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dbb3edd{width:72pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dbb3ede{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dbb3edf{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dbb3ee0{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6dbb65b4{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-6dc1c8be'&gt;&lt;caption class="Table Caption"&gt;Percent difference relative to FWO for the St Lucie River Estuary. Count of 14-day period within each respective flow category for each alternative across the simulation period of record. Estimates consistent with RECOVER methodology using 14-day moving average discharge values for S80 and Tributaries.&lt;/caption&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6dbb3edf"&gt;&lt;p class="cl-6dbaf0e0"&gt;&lt;span class="cl-6dbaf0de"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb65b4"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0de"&gt;&amp;lt; 150 cfs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ee0"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0de"&gt;150 - 1400 cfs&lt;br&gt;(Optimum)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ee0"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0de"&gt;1400 - 1700 cfs&lt;br&gt;(Stress)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb65b4"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0de"&gt;&amp;gt; 1700 cfs&lt;br&gt;(Damaging)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ee0"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0de"&gt;1700 - 4000&lt;br&gt;cfs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb65b4"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0de"&gt;&amp;gt; 4000&lt;br&gt;cfs&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6dbb3ed8"&gt;&lt;p class="cl-6dbaf0e0"&gt;&lt;span class="cl-6dbaf0df"&gt;NA25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed6"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed7"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed7"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed6"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed7"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed6"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6dbb3edb"&gt;&lt;p class="cl-6dbaf0e0"&gt;&lt;span class="cl-6dbaf0df"&gt;ECBr&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;3.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-4.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-2.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;3.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;0.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;11.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6dbb3edb"&gt;&lt;p class="cl-6dbaf0e0"&gt;&lt;span class="cl-6dbaf0df"&gt;AA&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;58.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;7.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-7.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-15.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-15.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-13.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6dbb3edb"&gt;&lt;p class="cl-6dbaf0e0"&gt;&lt;span class="cl-6dbaf0df"&gt;BB&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;41.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-0.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-9.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-1.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-7.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;14.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6dbb3ed8"&gt;&lt;p class="cl-6dbaf0e0"&gt;&lt;span class="cl-6dbaf0df"&gt;CC&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed6"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;61.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed7"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;7.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed7"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-10.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed6"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-14.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed7"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-16.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed6"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-8.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6dbb3edb"&gt;&lt;p class="cl-6dbaf0e0"&gt;&lt;span class="cl-6dbaf0df"&gt;DD&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;48.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-0.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;0.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-0.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-1.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-1.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6dbb3edb"&gt;&lt;p class="cl-6dbaf0e0"&gt;&lt;span class="cl-6dbaf0df"&gt;EE1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;55.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-3.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-15.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-0.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-3.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;8.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6dbb3edb"&gt;&lt;p class="cl-6dbaf0e0"&gt;&lt;span class="cl-6dbaf0df"&gt;EE2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;51.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-3.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;0.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-3.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ed9"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-3.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3eda"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;3.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6dbb3edc"&gt;&lt;p class="cl-6dbaf0e0"&gt;&lt;span class="cl-6dbaf0df"&gt;SR3.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ede"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;71.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3edd"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;6.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3edd"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-14.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ede"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-14.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3edd"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;-19.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6dbb3ede"&gt;&lt;p class="cl-6dbaf0e1"&gt;&lt;span class="cl-6dbaf0df"&gt;5.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="6607c177-d023-4ead-aaec-7e4d602b68b1"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("6607c177-d023-4ead-aaec-7e4d602b68b1");
+var template = document.getElementById("848ad952-90c1-40fd-9db0-d395d26c70fd");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+
+---
+name: SLE_RECOVER_Tab2
+
+### RECOVER Salinity Envelope
+
+&lt;template id="493b400a-bf32-4c09-b2ab-02d484e3536e"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-6de51ac6{border-collapse:collapse;}.cl-6ddb6fc6{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6ddb6fc7{font-family:'Times New Roman';font-size:9pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6ddbabc6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6ddbabc7{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6ddc473e{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6ddc473f{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6ddc4740{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6ddc4741{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6ddc4742{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6ddc4743{width:54pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6ddc4744{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6ddc4745{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6ddc4746{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6ddc4747{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-6de51ac6'&gt;&lt;caption class="Table Caption"&gt;Percent difference relative to FWO for the St Lucie River Estuary. Count of 14-day period within each respective flow category for each alternative across the simulation period of record. Estimates consistent with RECOVER methodology using 14-day moving average discharge values for S80 and Tributaries.&lt;/caption&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6ddc4744"&gt;&lt;p class="cl-6ddbabc6"&gt;&lt;span class="cl-6ddb6fc6"&gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="2"class="cl-6ddc4745"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc6"&gt;1400 - 1700 cfs&lt;br&gt;(Stress)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="2"class="cl-6ddc4745"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc6"&gt;&amp;gt; 1700 cfs&lt;br&gt;(Damaging)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6ddc4747"&gt;&lt;p class="cl-6ddbabc6"&gt;&lt;span class="cl-6ddb6fc6"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4746"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc6"&gt;Lake&lt;br&gt;Regulatory&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4746"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc6"&gt;Basin&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4746"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc6"&gt;Lake&lt;br&gt;Regulatory&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4746"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc6"&gt;Basin&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6ddc473f"&gt;&lt;p class="cl-6ddbabc6"&gt;&lt;span class="cl-6ddb6fc7"&gt;NA25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc473e"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc473e"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc473e"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc473e"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6ddc4741"&gt;&lt;p class="cl-6ddbabc6"&gt;&lt;span class="cl-6ddb6fc7"&gt;ECBr&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;9.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-11.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;12.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;0.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6ddc4741"&gt;&lt;p class="cl-6ddbabc6"&gt;&lt;span class="cl-6ddb6fc7"&gt;AA&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-84.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;46.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-85.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;7.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6ddc4741"&gt;&lt;p class="cl-6ddbabc6"&gt;&lt;span class="cl-6ddb6fc7"&gt;BB&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-43.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;14.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-16.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;3.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6ddc473f"&gt;&lt;p class="cl-6ddbabc6"&gt;&lt;span class="cl-6ddb6fc7"&gt;CC&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc473e"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-91.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc473e"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;46.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc473e"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-88.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc473e"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;9.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6ddc4741"&gt;&lt;p class="cl-6ddbabc6"&gt;&lt;span class="cl-6ddb6fc7"&gt;DD&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-7.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;6.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-4.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;1.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6ddc4741"&gt;&lt;p class="cl-6ddbabc6"&gt;&lt;span class="cl-6ddb6fc7"&gt;EE1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-64.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;19.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-19.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;5.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6ddc4741"&gt;&lt;p class="cl-6ddbabc6"&gt;&lt;span class="cl-6ddb6fc7"&gt;EE2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-18.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;14.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-23.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4740"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;3.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6ddc4743"&gt;&lt;p class="cl-6ddbabc6"&gt;&lt;span class="cl-6ddb6fc7"&gt;SR3.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4742"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-88.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4742"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;38.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4742"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;-78.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6ddc4742"&gt;&lt;p class="cl-6ddbabc7"&gt;&lt;span class="cl-6ddb6fc7"&gt;6.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="801c63cc-b898-457f-9f54-05557569e258"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("801c63cc-b898-457f-9f54-05557569e258");
+var template = document.getElementById("493b400a-bf32-4c09-b2ab-02d484e3536e");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+---
+name: SLE_RECOVER
+
+### RECOVER Salinity Envelope
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./Plots/Iteration_2/w_SR35/SLE_cat_total.png" alt="Count of 14-day period within each respective flow category for each alternative across the simulation period of record. Estimates consistent with RECOVER methodology using 14-day moving average discharge values for S80 and Tributaries." width="100%" /&gt;
+&lt;p class="caption"&gt;Count of 14-day period within each respective flow category for each alternative across the simulation period of record. Estimates consistent with RECOVER methodology using 14-day moving average discharge values for S80 and Tributaries.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+name: SLE_LakeDam
+
+### Damaging Lake Discharges
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./Plots/Iteration_2/w_SR35/S80Q_GT1400_annualmean.png" alt="Mean annual lake discharge volume when S80 flows are greater than 1400 cfs." width="100%" /&gt;
+&lt;p class="caption"&gt;Mean annual lake discharge volume when S80 flows are greater than 1400 cfs.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+name: FlowSouth
+
+### Flow South 
+
+
+&lt;template id="e98ae27f-9e6c-4c68-a4ac-af577edd4a59"&gt;&lt;style&gt;
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+&lt;/style&gt;&lt;div class="tabwid"&gt;&lt;style&gt;.cl-6ea8199a{border-collapse:collapse;}.cl-6e9ed11e{font-family:'Times New Roman';font-size:10pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6e9ed11f{font-family:'Times New Roman';font-size:6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3pt;}.cl-6e9ed120{font-family:'Times New Roman';font-size:9pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6e9ed121{font-family:'Times New Roman';font-size:6.6pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;position: relative;bottom:3.3pt;}.cl-6e9ed122{font-family:'Times New Roman';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6e9ed123{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6e9ed124{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:1pt;padding-top:1pt;padding-left:1pt;padding-right:1pt;line-height: 1;background-color:transparent;}.cl-6e9ed125{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6e9f1f0c{width:72pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e9f1f0d{width:36pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e9f1f0e{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e9f1f0f{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e9f1f10{width:72pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e9f1f11{width:36pt;background-clip: padding-box;background-color:rgba(255, 255, 0, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e9f1f12{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e9f1f13{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e9f1f14{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e9f1f15{width:72pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e9f1f16{width:36pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}&lt;/style&gt;&lt;table class='cl-6ea8199a'&gt;&lt;caption class="Table Caption"&gt;S351 and S354 (Flow South) and S2, S3, and S4 (backflow to Lake) average total discharge comparison between alternatives with percent change relative to FWO and ECB across the entire simulation period of record (Jan 1965 - Dec 2016).&lt;/caption&gt;&lt;thead&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6e9f1f13"&gt;&lt;p class="cl-6e9ed123"&gt;&lt;span class="cl-6e9ed11e"&gt;&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="2"class="cl-6e9f1f14"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed11e"&gt;Average Total&lt;br&gt;Annual Discharge&lt;br&gt;(x1000 Ac-Ft Yr⁻¹)&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td  colspan="2"class="cl-6e9f1f14"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed11e"&gt;% Change Compared to FWO&lt;/span&gt;&lt;span class="cl-6e9ed11f"&gt; 1 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6e9f1f16"&gt;&lt;p class="cl-6e9ed123"&gt;&lt;span class="cl-6e9ed11e"&gt;Alternative&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f15"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed11e"&gt;∑ S351, S354&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f15"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed11e"&gt;∑ S2, S3, S4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f15"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed11e"&gt;∑ S351, S354&lt;/span&gt;&lt;span class="cl-6e9ed11f"&gt; 1 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f15"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed11e"&gt;∑ S2, S3, S4&lt;/span&gt;&lt;span class="cl-6e9ed11f"&gt; 1 &lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6e9f1f0d"&gt;&lt;p class="cl-6e9ed123"&gt;&lt;span class="cl-6e9ed120"&gt;NA25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0c"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;294.9&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0c"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;46.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0c"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0c"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;0.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6e9f1f0f"&gt;&lt;p class="cl-6e9ed123"&gt;&lt;span class="cl-6e9ed120"&gt;ECBr&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;296.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;52.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;0.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;11.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6e9f1f0f"&gt;&lt;p class="cl-6e9ed123"&gt;&lt;span class="cl-6e9ed120"&gt;AA&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;466.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;81.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;58.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;75.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6e9f1f0f"&gt;&lt;p class="cl-6e9ed123"&gt;&lt;span class="cl-6e9ed120"&gt;BB&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;375.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;60.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;27.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;29.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6e9f1f0d"&gt;&lt;p class="cl-6e9ed123"&gt;&lt;span class="cl-6e9ed120"&gt;CC&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0c"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;423.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0c"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;64.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0c"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;43.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0c"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;37.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6e9f1f0f"&gt;&lt;p class="cl-6e9ed123"&gt;&lt;span class="cl-6e9ed120"&gt;DD&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;383.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;63.2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;30.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;35.8&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6e9f1f0f"&gt;&lt;p class="cl-6e9ed123"&gt;&lt;span class="cl-6e9ed120"&gt;EE1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;413.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;64.6&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;40.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;38.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6e9f1f0f"&gt;&lt;p class="cl-6e9ed123"&gt;&lt;span class="cl-6e9ed120"&gt;EE2&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;410.1&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;66.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;39.0&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f0e"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;43.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td class="cl-6e9f1f11"&gt;&lt;p class="cl-6e9ed123"&gt;&lt;span class="cl-6e9ed120"&gt;SR3.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f10"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;462.3&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f10"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;72.4&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f10"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;56.7&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td class="cl-6e9f1f10"&gt;&lt;p class="cl-6e9ed124"&gt;&lt;span class="cl-6e9ed120"&gt;55.5&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;tfoot&gt;&lt;tr style="overflow-wrap:break-word;"&gt;&lt;td  colspan="5"class="cl-6e9f1f13"&gt;&lt;p class="cl-6e9ed125"&gt;&lt;span class="cl-6e9ed121"&gt; 1 &lt;/span&gt;&lt;span class="cl-6e9ed122"&gt;FWO = NA25&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tfoot&gt;&lt;/table&gt;&lt;/div&gt;&lt;/template&gt;
+&lt;div class="flextable-shadow-host" id="deeb8e40-aec2-4150-ba3f-3926628e92e8"&gt;&lt;/div&gt;
+&lt;script&gt;
+var dest = document.getElementById("deeb8e40-aec2-4150-ba3f-3926628e92e8");
+var template = document.getElementById("e98ae27f-9e6c-4c68-a4ac-af577edd4a59");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+&lt;/script&gt;
+
+---
+name: FloodControl
+
+### Flood Control
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="./Plots/Iteration_2/w_SR35/AvgFloodControl.png" alt="Mean annual flood control releases from Lake Okeechobee over the 52 year (1965 - 2016) simulation period of record." width="90%" /&gt;
+&lt;p class="caption"&gt;Mean annual flood control releases from Lake Okeechobee over the 52 year (1965 - 2016) simulation period of record.&lt;/p&gt;
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
