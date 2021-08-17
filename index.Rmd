@@ -8,6 +8,18 @@ editor_options:
   chunk_output_type: console
 ---
 
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-205169824-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-205169824-1');
+</script>
+</head>
+
 ***
 
 Site Update `r Sys.Date()`
@@ -171,6 +183,8 @@ subset(dat2,Alt!="SR3.5")%>%
 <li> S77/S308 Nutrient Loading estimates | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_LakeBasinLoad){target="_blank"} |
  [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_LakeBasinLoad.pdf){target="_blank"} |</li>
 <li> Evaluation with SR3.5 | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_SR35){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_SR35.pdf){target="_blank"} |</li>
+<li> Estuary Summary | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_SR35_CRESum){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_SR35_CRESum.pdf){target="_blank"} |</li>
+<li> Post Iteration 2 Eval | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_postiter2_sum){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_postiter2_sum.pdf){target="_blank"} |</li>
 </ul>
 </ul>
 <br>
