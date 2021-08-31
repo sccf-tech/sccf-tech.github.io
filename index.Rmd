@@ -185,6 +185,8 @@ subset(dat2,Alt!="SR3.5")%>%
 <li> Evaluation with SR3.5 | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_SR35){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_LOSOM_SR35.pdf){target="_blank"} |</li>
 <li> Estuary Summary | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_SR35_CRESum){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter2_SR35_CRESum.pdf){target="_blank"} |</li>
 <li> Post Iteration 2 Eval | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_postiter2_sum){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_postiter2_sum.pdf){target="_blank"} |</li>
+<li> Post Iteration 2 Eval - Everglades Foundation Optimization | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_postiter2_sum_opt){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_postiter2_sum_opt.pdf){target="_blank"} |</li>
+<li> Post Iteration 2 Eval - Briefing | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_CSWFL_briefing_20210831.html){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_CSWFL_briefing_20210831.pdf){target="_blank"} |</li>
 </ul>
 </ul>
 <br>
