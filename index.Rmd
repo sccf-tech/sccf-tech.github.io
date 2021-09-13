@@ -189,6 +189,9 @@ subset(dat2,Alt!="SR3.5")%>%
 <li> Post Iteration 2 Eval - Briefing | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_CSWFL_briefing_20210831.html){target="_blank"} | [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_CSWFL_briefing_20210831.pdf){target="_blank"} |</li>
 </ul>
 </ul>
+<ul>
+<li>Sept 2021 - LOSOM Update (Captiva Comunity Panel & Collier County Board of Commissioners) | [PDF](https://sccf-tech.github.io/slides/LOSOM/LOSOM Presentation to Collier County 9.14.21 Final.pdf){target="_blank"} |</li>
+</ul>
 <br>
 
 **PSRP**
