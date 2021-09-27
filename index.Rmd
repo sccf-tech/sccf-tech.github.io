@@ -52,9 +52,11 @@ Want to contribute to this page? Create an issue [here](https://github.com/sccf-
 
 - SCCF Page - Caloosahatchee Conditions Reports | [Link](http://www.sccf.org/water-quality/caloosahatchee-condition-reports){target="_blank"} |
 
-- Weekly Caloosahatchee Stakeholder Report | [Report](https://sccf-tech.github.io/CRE_Conditions/report/stakeholder_data.html){target="_blank"} | [Source](https://github.com/sccf-tech/CRE_Conditions){target="_blank"} |
+- ~~Weekly Caloosahatchee Stakeholder Report | [Report](https://sccf-tech.github.io/CRE_Conditions/report/stakeholder_data.html){target="_blank"}~~ | [Source](https://github.com/sccf-tech/CRE_Conditions){target="_blank"} | *Depreciated*
 
-- Caloosahatchee/Okeechobee Conditions Report | [Report](https://sccf-tech.github.io/CRE_Conditions/report/CRE_REPORT.html){target="_blank"} | [Source](https://github.com/sccf-tech/CRE_Conditions){target="_blank"} |
+- ~~Caloosahatchee/Okeechobee Conditions Report | [Report](https://sccf-tech.github.io/CRE_Conditions/report/CRE_REPORT.html){target="_blank"}~~ | [Source](https://github.com/sccf-tech/CRE_Conditions){target="_blank"} | *Depreciated*
+
+- Okeechobee and Caloosahatchee Regional Conditions Report | [Report](https://sccf-tech.github.io/CRE_Conditions/report/RegionalConditions){target="_blank"} | [Source](https://github.com/sccf-tech/CRE_Conditions){target="_blank"} |
 
 ***
 
