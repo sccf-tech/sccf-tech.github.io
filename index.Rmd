@@ -194,6 +194,17 @@ subset(dat2,Alt!="SR3.5")%>%
 <ul>
 <li>Sept 2021 - LOSOM Update (Captiva Comunity Panel & Collier County Board of Commissioners) | [PDF](https://sccf-tech.github.io/slides/LOSOM/LOSOM Presentation to Collier County 9.14.21 Final.pdf){target="_blank"} |</li>
 </ul>
+
+<ul>
+<li>Iteration 3 modeling:</li>
+<li> Phase 1 - Initial Sensitivity Runs |</li>
+<ul>
+<li> Initial Evaluation - bulk data analysis | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p1){target="_blank"} |
+[PDF](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p1.pdf){target="_blank"} |</li>
+<li> Independent Analysis - using raw outputs | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p1_v2){target="_blank"} |
+[PDF](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p1_v2.pdf){target="_blank"} |</li>
+</ul>
+</ul>
 <br>
 
 **PSRP**
