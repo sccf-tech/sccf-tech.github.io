@@ -203,6 +203,8 @@ subset(dat2,Alt!="SR3.5")%>%
 [PDF](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p1.pdf){target="_blank"} |</li>
 <li> Independent Analysis - using raw outputs | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p1_v2){target="_blank"} |
 [PDF](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p1_v2.pdf){target="_blank"} |</li>
+<li> Slidedeck for discussion with FDEP | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p1_FDEP){target="_blank"} |
+[PDF](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p1_FDEP.pdf){target="_blank"} |</li>
 </ul>
 </ul>
 <br>
