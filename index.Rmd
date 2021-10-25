@@ -206,6 +206,11 @@ subset(dat2,Alt!="SR3.5")%>%
 <li> Slidedeck for discussion with FDEP | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p1_FDEP){target="_blank"} |
 [PDF](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p1_FDEP.pdf){target="_blank"} |</li>
 </ul>
+<li> Phase 2 - Batch Optimization |</li>
+<ul>
+<li> Batch Optimization - model screening | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p2){target="_blank"} |
+[PDF](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p2.pdf){target="_blank"} |</li>
+</ul>
 </ul>
 <br>
 
