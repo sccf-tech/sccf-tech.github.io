@@ -210,6 +210,8 @@ subset(dat2,Alt!="SR3.5")%>%
 <ul>
 <li> Batch Optimization - model screening | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p2){target="_blank"} |
 [PDF](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p2.pdf){target="_blank"} |</li>
+<li> Batch Optimization - Selected Alternative | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p2_tsp){target="_blank"} |
+[PDF](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p2_tsp.pdf){target="_blank"} |</li>
 </ul>
 </ul>
 <br>
