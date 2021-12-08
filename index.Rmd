@@ -237,6 +237,13 @@ subset(dat2,Alt!="SR3.5")%>%
 
 </ul>
 
+<br>
+**SCCF Board**
+<ul>
+<li>Dec 2021 | [slides](https://sccf-tech.github.io/slides/BoardMeeting/20211208_SCCFBoard){target="_blank"} |
+</li>
+</ul>
+
 ## Resources
 
 * [TBEP technical github](https://tbep-tech.github.io/){target="_blank"}

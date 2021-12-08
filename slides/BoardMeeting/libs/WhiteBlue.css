@@ -65,6 +65,10 @@ h1, h2, h3 {
   color: #005D8E;
 }
 
+ol ul li {
+  padding: 4px 0px 1px;
+}
+
 .inverse h1 {
   font-family: 'Muli';
   font-weight: 800;
@@ -254,4 +258,19 @@ blockquote, .blockquote {
 
 .align_right{
   text-align: right;
+}
+
+.align_center{
+  text-align: center;
+}
+
+
+
+.highlight-last-item > ul > li,
+.highlight-last-item > ol > li {
+  opacity: 0.5;
+}
+.highlight-last-item > ul > li:last-of-type,
+.highlight-last-item > ol > li:last-of-type {
+  opacity: 1;
 }
