@@ -213,6 +213,12 @@ subset(dat2,Alt!="SR3.5")%>%
 <li> Batch Optimization - Selected Alternative | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p2_tsp){target="_blank"} |
 [PDF](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_p2_tsp.pdf){target="_blank"} |</li>
 </ul>
+<li> Phase 3 - Preferred Alternative |</li>
+<ul>
+<li> Preferred Alternative | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter3_prefalt.html){target="_blank"} |
+[PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter3_prefalt.pdf){target="_blank"} |</li>
+</ul>
+</ul>
 </ul>
 <br>
 
