@@ -217,8 +217,10 @@ subset(dat2,Alt!="SR3.5")%>%
 <ul>
 <li> Preferred Alternative | [Link](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter3_prefalt.html){target="_blank"} |
 [PDF](https://sccf-tech.github.io/slides/LOSOM/SCCF_iter3_prefalt.pdf){target="_blank"} |</li>
+<li> Listening Session | [Link](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_LOSOMListen.html){target="_blank"} |
+[PDF](https://sccf-tech.github.io/slides/LOSOM/sccf_iter3_LOSOMListen.pdf){target="_blank"} |</li>
 </ul>
-<li> Presentation to UF CCS | [Link](https://sccf-tech.github.io/slides/LOSOM/20220118_LOSOM_UFCCS.html)|</li>
+<li> Presentation to UF CCS | [Link](https://sccf-tech.github.io/slides/LOSOM/20220118_LOSOM_UFCCS.html) |</li>
 </ul>
 </ul>
 <br>
