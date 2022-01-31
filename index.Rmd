@@ -253,6 +253,13 @@ subset(dat2,Alt!="SR3.5")%>%
 </li>
 </ul>
 
+<br>
+**Open Science**
+<ul>
+<li>TBEP Open Science Subcommittee - 01 Feb 2022 | [slides](https://sccf-tech.github.io/CRE_Conditions/slides/20220201_TBEPOpenSci){target="_blank"} | [pdf](https://sccf-tech.github.io/CRE_Conditions/slides/20220201_TBEPOpenSci.pdf){target="_blank} |
+</li>
+</ul>
+
 ## Resources
 
 * [TBEP technical github](https://tbep-tech.github.io/){target="_blank"}
